@@ -1,10 +1,15 @@
 // IEC Website — Main JavaScript
 
-// ===== LOGO ENTRANCE ANIMATION (homepage only) =====
+// ===== LOGO ENTRANCE ANIMATION — Heidrick-style trail effect =====
 (function() {
     const overlay = document.getElementById('logoIntro');
     const diamond = document.getElementById('logoDiamond');
     const navbar = document.getElementById('navbar');
+    const trailDiamonds = document.querySelectorAll('.trail-diamond');
+    const glow1 = document.getElementById('logoGlow1');
+    const glow2 = document.getElementById('logoGlow2');
+    const logoText = document.getElementById('logoText');
+    
     if (!overlay || !diamond || !navbar) return;
 
     // Only play on first visit per session
@@ -25,9 +30,33 @@
         return navLogo.getBoundingClientRect();
     }
 
-    // Phase 1: Diamond pulses at center (brief pause)
-    // Phase 2: Diamond shrinks & moves to navbar position
-    // Phase 3: Overlay fades out, navbar reveals with stagger
+    // Phase 1: Trail diamonds appear sequentially (right to left, large to small)
+    let delay = 100;
+    trailDiamonds.forEach((td, i) => {
+        setTimeout(() => {
+            td.classList.add('animate');
+            td.style.opacity = 0.15 + (i * 0.05); // Gradually more visible
+        }, delay);
+        delay += 120; // Stagger each diamond
+    });
+
+    // Phase 2: Main diamond appears with glow rings
+    setTimeout(() => {
+        diamond.classList.add('animate');
+        if (glow1) {
+            glow1.classList.add('animate');
+        }
+        setTimeout(() => {
+            if (glow2) glow2.classList.add('animate');
+        }, 200);
+    }, delay);
+
+    // Phase 3: Brand text appears
+    setTimeout(() => {
+        if (logoText) logoText.classList.add('animate');
+    }, delay + 400);
+
+    // Phase 4: Everything shrinks to navbar and fades out
     setTimeout(() => {
         const targetRect = getTargetRect();
         const diamondRect = diamond.getBoundingClientRect();
@@ -38,16 +67,29 @@
             const dy = targetRect.top + targetRect.height / 2 - (diamondRect.top + diamondRect.height / 2);
             const scale = targetRect.height / diamondRect.height;
 
-            // Animate diamond to navbar position
-            diamond.style.transition = 'transform 0.8s cubic-bezier(.22,1,.36,1), opacity 0.4s ease';
+            // Animate main diamond to navbar position
+            diamond.style.transition = 'transform 0.9s cubic-bezier(.22,1,.36,1), opacity 0.5s ease';
             diamond.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
+            
+            // Trail diamonds converge to the same point
+            trailDiamonds.forEach((td, i) => {
+                td.style.transition = `all ${0.6 + i * 0.05}s cubic-bezier(.22,1,.36,1)`;
+                td.style.transform = `translate(${dx - td.offsetLeft}px, ${dy - td.offsetTop}px) scale(0.2)`;
+                td.style.opacity = '0';
+            });
         } else {
             // Fallback: just shrink and fade
-            diamond.style.transition = 'transform 0.8s cubic-bezier(.22,1,.36,1), opacity 0.4s ease';
+            diamond.style.transition = 'transform 0.9s cubic-bezier(.22,1,.36,1), opacity 0.5s ease';
             diamond.style.transform = 'scale(0.15)';
         }
 
-        // Phase 3: After diamond moves, fade overlay & reveal navbar
+        // Fade out text
+        if (logoText) {
+            logoText.style.transition = 'opacity 0.4s ease';
+            logoText.style.opacity = '0';
+        }
+
+        // Phase 5: Fade overlay & reveal navbar
         setTimeout(() => {
             overlay.classList.add('animating');
             overlay.classList.add('done');
@@ -69,8 +111,8 @@
                 navbar.classList.remove('intro-reveal');
                 if (navLinks) navLinks.classList.remove('animate-entrance');
             }, 800);
-        }, 700);
-    }, 600); // initial pause to let diamond sit centered
+        }, 800);
+    }, delay + 1200); // Wait for text to be visible before transitioning
 })();
 
 // Navbar scroll effect
