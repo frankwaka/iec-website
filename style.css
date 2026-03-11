@@ -65,13 +65,7 @@ button{font-family:inherit;cursor:pointer}
     flex-shrink:0;
     transition:all var(--speed) var(--ease);
 }
-/* Neon logo glow effect for navbar */
-.logo-icon-img.logo-neon{
-    filter:drop-shadow(0 0 3px rgba(255,255,255,.6)) drop-shadow(0 0 6px rgba(255,255,255,.3));
-}
-.navbar.scrolled .logo-icon-img.logo-neon{
-    filter:drop-shadow(0 0 2px rgba(61,204,110,.4)) drop-shadow(0 0 4px rgba(61,204,110,.2));
-}
+
 .logo-text{display:flex;flex-direction:column;line-height:1;gap:5px}
 .logo-main{
     font-size:36px;font-weight:700;color:#fff;
@@ -107,10 +101,10 @@ button{font-family:inherit;cursor:pointer}
     to{opacity:0;pointer-events:none;visibility:hidden}
 }
 
-/* Main centered diamond — SVG Neon glow effect */
+/* Main centered diamond — Clean Neon glow effect */
 .logo-intro-diamond{
     position:relative;z-index:10;
-    width:200px;height:200px;
+    width:180px;height:180px;
     opacity:0;
     display:flex;
     align-items:center;
@@ -120,49 +114,92 @@ button{font-family:inherit;cursor:pointer}
     width:100%;height:100%;
     object-fit:contain;
     position:relative;
-    z-index:2;
+    z-index:3;
+    /* Clean glow using box-shadow simulation via filter */
+    filter:
+        drop-shadow(0 0 2px rgba(255,255,255,.9))
+        drop-shadow(0 0 8px rgba(255,255,255,.6))
+        drop-shadow(0 0 20px rgba(61,204,110,.5))
+        drop-shadow(0 0 40px rgba(61,204,110,.3));
 }
-/* Soft ambient glow behind the SVG */
+/* Inner white glow layer */
 .logo-intro-diamond::before{
     content:'';
     position:absolute;
-    width:220px;height:220px;
+    width:160px;height:160px;
     top:50%;left:50%;
     transform:translate(-50%,-50%);
-    background:radial-gradient(circle at center, 
-        rgba(255,255,255,.15) 0%,
-        rgba(255,255,255,.05) 50%,
-        transparent 70%
+    background:radial-gradient(ellipse at center, 
+        rgba(255,255,255,.25) 0%,
+        rgba(255,255,255,.08) 40%,
+        transparent 65%
     );
     border-radius:50%;
     z-index:1;
     pointer-events:none;
+    filter:blur(10px);
+}
+/* Outer ambient glow layer */
+.logo-intro-diamond::after{
+    content:'';
+    position:absolute;
+    width:280px;height:280px;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(ellipse at center, 
+        rgba(61,204,110,.2) 0%,
+        rgba(61,204,110,.08) 35%,
+        transparent 60%
+    );
+    border-radius:50%;
+    z-index:0;
+    pointer-events:none;
+    filter:blur(25px);
 }
 
 /* Pulsing glow animation */
 .logo-intro-diamond.animate img{
-    animation:neonPulse 2.5s ease-in-out infinite;
+    animation:logoPulse 2.5s ease-in-out infinite;
 }
 .logo-intro-diamond.animate::before{
-    animation:ambientPulse 2.5s ease-in-out infinite;
+    animation:innerGlowPulse 2.5s ease-in-out infinite;
 }
-@keyframes neonPulse{
+.logo-intro-diamond.animate::after{
+    animation:outerGlowPulse 2.5s ease-in-out infinite;
+}
+@keyframes logoPulse{
     0%,100%{
-        opacity:1;
-        filter:brightness(1);
+        filter:
+            drop-shadow(0 0 2px rgba(255,255,255,.9))
+            drop-shadow(0 0 8px rgba(255,255,255,.6))
+            drop-shadow(0 0 20px rgba(61,204,110,.5))
+            drop-shadow(0 0 40px rgba(61,204,110,.3));
     }
     50%{
-        opacity:1;
-        filter:brightness(1.2);
+        filter:
+            drop-shadow(0 0 4px rgba(255,255,255,1))
+            drop-shadow(0 0 12px rgba(255,255,255,.7))
+            drop-shadow(0 0 30px rgba(61,204,110,.6))
+            drop-shadow(0 0 50px rgba(61,204,110,.4));
     }
 }
-@keyframes ambientPulse{
+@keyframes innerGlowPulse{
     0%,100%{
         opacity:1;
         transform:translate(-50%,-50%) scale(1);
     }
     50%{
         opacity:.7;
+        transform:translate(-50%,-50%) scale(1.05);
+    }
+}
+@keyframes outerGlowPulse{
+    0%,100%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    50%{
+        opacity:.6;
         transform:translate(-50%,-50%) scale(1.1);
     }
 }
