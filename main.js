@@ -1,11 +1,10 @@
 // IEC Website — Main JavaScript
 
-// ===== LOGO ENTRANCE ANIMATION — Premium refined effect =====
+// ===== LOGO ENTRANCE ANIMATION — Centered logo only =====
 (function() {
     const overlay = document.getElementById('logoIntro');
     const diamond = document.getElementById('logoDiamond');
     const navbar = document.getElementById('navbar');
-    const trailDiamonds = document.querySelectorAll('.trail-diamond');
     const glow1 = document.getElementById('logoGlow1');
     const glow2 = document.getElementById('logoGlow2');
     const glow3 = document.getElementById('logoGlow3');
@@ -24,23 +23,7 @@
     // Prevent scroll during animation
     document.body.style.overflow = 'hidden';
 
-    // Get the navbar logo icon's final position
-    function getTargetRect() {
-        const navLogo = navbar.querySelector('.logo-icon-img');
-        if (!navLogo) return null;
-        return navLogo.getBoundingClientRect();
-    }
-
-    // Phase 1: Trail diamonds appear sequentially with refined timing
-    let delay = 200;
-    trailDiamonds.forEach((td, i) => {
-        setTimeout(() => {
-            td.classList.add('animate');
-        }, delay);
-        delay += 150; // Slightly slower stagger for elegance
-    });
-
-    // Phase 2: Main diamond appears with staggered glow rings
+    // Phase 1: Main diamond appears with staggered glow rings
     setTimeout(() => {
         diamond.classList.add('animate');
         if (glow1) {
@@ -52,21 +35,15 @@
         if (glow3) {
             setTimeout(() => glow3.classList.add('animate'), 500);
         }
-    }, delay + 100);
+    }, 200);
 
-    // Phase 3: Brand text appears with delay
+    // Phase 2: Brand text appears with delay
     setTimeout(() => {
         if (logoText) logoText.classList.add('animate');
-    }, delay + 600);
+    }, 800);
 
-    // Phase 4: Elegant fade out (no shrinking to navbar for cleaner exit)
+    // Phase 3: Elegant fade out
     setTimeout(() => {
-        // Fade out trail diamonds smoothly
-        trailDiamonds.forEach((td, i) => {
-            td.style.transition = `opacity ${0.4 + i * 0.05}s ease-out`;
-            td.style.opacity = '0';
-        });
-
         // Fade out main diamond
         diamond.style.transition = 'opacity 0.5s ease-out, transform 0.8s ease-out';
         diamond.style.opacity = '0';
@@ -78,7 +55,7 @@
             logoText.style.opacity = '0';
         }
 
-        // Phase 5: Fade overlay & reveal navbar
+        // Phase 4: Fade overlay & reveal navbar
         setTimeout(() => {
             overlay.classList.add('animating');
             overlay.classList.add('done');
