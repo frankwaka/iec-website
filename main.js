@@ -78,7 +78,7 @@
                 if (navLinks) navLinks.classList.remove('animate-entrance');
             }, 800);
         }, 600);
-    }, delay + 1800); // Longer display time for refined feel
+    }, 2000); // Display logo for 2 seconds before fading
 })();
 
 // Navbar scroll effect
