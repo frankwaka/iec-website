@@ -39,77 +39,202 @@ button{font-family:inherit;cursor:pointer}
 .reveal{opacity:0;transform:translateY(40px);transition:opacity .8s var(--ease), transform .8s var(--ease)}
 .reveal.visible{opacity:1;transform:none}
 
-/* ---------- NAVBAR ---------- */
+/* ---------- NAVBAR — Heidrick Premium Style ---------- */
 .navbar{
     position:fixed;top:0;left:0;right:0;z-index:100;
-    padding:24px 0;
+    padding:28px 0;
     transition:padding var(--speed) var(--ease), background var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
     overflow:visible;
 }
+/* Transparent on hero, solid when scrolled */
+.navbar:not(.scrolled){
+    background:transparent;
+}
 .navbar.scrolled{
     padding:14px 0;
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(12px);
+    background:rgba(255,255,255,.98);
+    backdrop-filter:blur(16px);
     box-shadow:0 1px 0 var(--border);
 }
-.nav-container{max-width:1280px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between}
+.nav-container{max-width:1400px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between}
 
 /* logo — Heidrick grand style */
-.logo{display:flex;align-items:center;gap:16px;overflow:visible;flex-shrink:0}
+.logo{display:flex;align-items:center;gap:18px;overflow:visible;flex-shrink:0}
 .logo-icon-img{
-    height:48px;width:auto;display:block;object-fit:contain;
+    height:52px;width:auto;display:block;object-fit:contain;
     flex-shrink:0;
     transition:all var(--speed) var(--ease);
+    filter:drop-shadow(0 2px 8px rgba(0,0,0,.1));
 }
-.logo-text{display:flex;flex-direction:column;line-height:1;gap:4px}
+.logo-text{display:flex;flex-direction:column;line-height:1;gap:5px}
 .logo-main{
-    font-size:32px;font-weight:700;color:var(--ink);
-    letter-spacing:10px;
+    font-size:36px;font-weight:700;color:#fff;
+    letter-spacing:12px;
     font-family:'Georgia','Times New Roman',serif;
     text-transform:uppercase;
     transition:all var(--speed) var(--ease);
+    text-shadow:0 2px 10px rgba(0,0,0,.2);
 }
 .logo-sub{
-    font-size:14px;letter-spacing:4px;text-transform:uppercase;
-    color:var(--ink-light);font-weight:500;
+    font-size:11px;letter-spacing:5px;text-transform:uppercase;
+    color:rgba(255,255,255,.7);font-weight:500;
     font-family:'Georgia','Times New Roman',serif;
     transition:all var(--speed) var(--ease);
     white-space:nowrap;
 }
-.navbar.scrolled .logo-main{font-size:22px;letter-spacing:6px}
-.navbar.scrolled .logo-sub{font-size:10px;letter-spacing:2.5px}
-.navbar.scrolled .logo-icon-img{height:34px}
+/* Scrolled state — dark text */
+.navbar.scrolled .logo-main{font-size:24px;letter-spacing:7px;color:var(--ink);text-shadow:none}
+.navbar.scrolled .logo-sub{font-size:9px;letter-spacing:3px;color:var(--ink-light)}
+.navbar.scrolled .logo-icon-img{height:38px;filter:none}
 
-/* --- Logo entrance animation --- */
+/* --- Logo entrance animation — Neon glow style --- */
 .logo-intro-overlay{
     position:fixed;inset:0;z-index:9999;
-    background:var(--white);
+    background:linear-gradient(145deg, #0a1810 0%, #0d2018 50%, #081510 100%);
     display:flex;align-items:center;justify-content:center;
     pointer-events:all;
+    overflow:hidden;
+    /* CSS-only safety net: auto-fade even if JS fails */
+    animation: overlayAutoFade 0.8s ease-out 4.5s forwards;
 }
-.logo-intro-diamond{
-    width:160px;height:160px;
-    animation:diamondPulse 1.2s ease-in-out;
+@keyframes overlayAutoFade{
+    to{opacity:0;pointer-events:none;visibility:hidden}
 }
-.logo-intro-diamond img{width:100%;height:100%;object-fit:contain}
 
-@keyframes diamondPulse{
-    0%{opacity:0;transform:scale(.6)}
-    50%{opacity:1;transform:scale(1.05)}
+/* Main centered diamond — Neon glow effect like reference */
+.logo-intro-diamond{
+    position:relative;z-index:10;
+    width:180px;height:180px;
+    opacity:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.logo-intro-diamond img{
+    max-width:100%;max-height:100%;
+    width:auto;height:auto;
+    object-fit:contain;
+    image-rendering:-webkit-optimize-contrast;
+    /* Neon glow effect - soft layered white/green glow */
+    filter:
+        drop-shadow(0 0 8px rgba(255,255,255,.9))
+        drop-shadow(0 0 15px rgba(255,255,255,.6))
+        drop-shadow(0 0 30px rgba(180,255,200,.5))
+        drop-shadow(0 0 50px rgba(61,204,110,.4))
+        drop-shadow(0 0 80px rgba(61,204,110,.3));
+}
+
+/* Pulsing glow animation */
+.logo-intro-diamond.animate img{
+    animation:neonPulse 2s ease-in-out infinite;
+}
+@keyframes neonPulse{
+    0%,100%{
+        filter:
+            drop-shadow(0 0 8px rgba(255,255,255,.9))
+            drop-shadow(0 0 15px rgba(255,255,255,.6))
+            drop-shadow(0 0 30px rgba(180,255,200,.5))
+            drop-shadow(0 0 50px rgba(61,204,110,.4))
+            drop-shadow(0 0 80px rgba(61,204,110,.3));
+    }
+    50%{
+        filter:
+            drop-shadow(0 0 12px rgba(255,255,255,1))
+            drop-shadow(0 0 25px rgba(255,255,255,.7))
+            drop-shadow(0 0 45px rgba(180,255,200,.6))
+            drop-shadow(0 0 70px rgba(61,204,110,.5))
+            drop-shadow(0 0 100px rgba(61,204,110,.35));
+    }
+}
+
+/* Animated glow rings — subtle */
+.logo-intro-glow{
+    position:absolute;
+    width:320px;height:320px;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:50%;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    opacity:0;
+    z-index:1;
+    box-shadow:
+        inset 0 0 60px rgba(61,204,110,.03),
+        0 0 40px rgba(61,204,110,.04);
+}
+.logo-intro-glow-2{
+    width:450px;height:450px;
+    border-color:rgba(255,255,255,.04);
+}
+.logo-intro-glow-3{
+    width:580px;height:580px;
+    border-color:rgba(255,255,255,.02);
+}
+
+/* Brand text — refined typography */
+.logo-intro-text{
+    position:absolute;
+    bottom:22%;left:50%;transform:translateX(-50%);
+    text-align:center;
+    opacity:0;
+    z-index:10;
+}
+.logo-intro-text .intro-brand{
+    font-family:'Georgia','Times New Roman',serif;
+    font-size:42px;font-weight:400;
+    color:#fff;letter-spacing:20px;
+    text-transform:uppercase;
+    margin-bottom:12px;
+    text-shadow:0 0 40px rgba(61,204,110,.2);
+}
+.logo-intro-text .intro-tagline{
+    font-size:12px;color:rgba(255,255,255,.4);
+    letter-spacing:8px;text-transform:uppercase;
+    font-weight:300;
+}
+
+/* Animation keyframes — smoother easing */
+@keyframes trailFadeIn{
+    0%{opacity:0;transform:translate(50%,-50%) scale(1.2)}
+    100%{opacity:1;transform:translate(50%,-50%) scale(1)}
+}
+@keyframes mainDiamondIn{
+    0%{opacity:0;transform:scale(0.6)}
+    70%{opacity:1;transform:scale(1.03)}
     100%{opacity:1;transform:scale(1)}
+}
+@keyframes glowExpand{
+    0%{transform:translate(-50%,-50%) scale(0);opacity:0}
+    40%{opacity:.8}
+    100%{transform:translate(-50%,-50%) scale(1);opacity:0}
+}
+@keyframes textFadeUp{
+    0%{opacity:0;transform:translateX(-50%) translateY(20px)}
+    100%{opacity:1;transform:translateX(-50%) translateY(0)}
+}
+
+/* Animation classes applied by JS */
+.logo-intro-diamond.animate{
+    animation:mainDiamondIn .8s var(--ease) forwards;
+}
+.logo-intro-glow.animate{
+    animation:glowExpand 1.5s var(--ease) forwards;
+}
+.logo-intro-text.animate{
+    animation:textFadeUp .6s var(--ease) forwards;
 }
 
 /* Animation states */
 .logo-intro-overlay.animating{
-    transition:opacity .5s var(--ease);
+    transition:opacity .6s var(--ease);
 }
 .logo-intro-overlay.done{
     opacity:0;
     pointer-events:none;
 }
 
-/* Navbar hidden during intro */
-.navbar.intro-hidden{opacity:0}
+/* Navbar hidden during intro — with CSS safety fallback */
+.navbar.intro-hidden{opacity:0;animation: navAutoShow 0.6s ease-out 4.8s forwards}
+@keyframes navAutoShow{to{opacity:1}}
 .navbar.intro-reveal{
     animation:navFadeIn .6s var(--ease) forwards;
 }
@@ -133,36 +258,50 @@ button{font-family:inherit;cursor:pointer}
     to{opacity:1;transform:none}
 }
 
-/* nav links — Heidrick style */
-.nav-links{display:flex;gap:36px}
+/* nav links — Heidrick premium style */
+.nav-links{display:flex;gap:40px}
 .nav-links a{
-    font-size:14px;font-weight:500;color:var(--text);
-    position:relative;padding:6px 0;letter-spacing:.3px;
+    font-size:13px;font-weight:500;color:rgba(255,255,255,.8);
+    position:relative;padding:6px 0;letter-spacing:.5px;
     transition:color var(--speed) var(--ease);
+    text-transform:uppercase;
 }
 .nav-links a::after{
     content:'';position:absolute;bottom:0;left:0;
-    width:0;height:1.5px;background:var(--brand);
+    width:0;height:2px;background:var(--brand-accent);
     transition:width var(--speed) var(--ease);
 }
-.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-links a:hover,.nav-links a.active{color:#fff}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
+/* Scrolled state — dark text */
+.navbar.scrolled .nav-links a{color:var(--text)}
+.navbar.scrolled .nav-links a:hover,.navbar.scrolled .nav-links a.active{color:var(--ink)}
 
-.nav-right{display:flex;align-items:center;gap:20px}
+.nav-right{display:flex;align-items:center;gap:24px}
 
-/* lang dropdown */
+/* lang dropdown — premium style */
 .lang-dropdown{position:relative;display:inline-block}
 .lang-dropdown-toggle{
     display:flex;align-items:center;gap:6px;
-    border:1px solid var(--border);
+    border:1px solid rgba(255,255,255,.25);
     background:transparent;
-    padding:6px 12px;font-size:12px;font-weight:600;
-    color:var(--text);letter-spacing:.3px;
+    padding:8px 14px;font-size:11px;font-weight:600;
+    color:rgba(255,255,255,.8);letter-spacing:.5px;
     cursor:pointer;
     transition:all var(--speed) var(--ease);
-    border-radius:4px;
+    border-radius:0;
+    text-transform:uppercase;
 }
 .lang-dropdown-toggle:hover{
+    border-color:var(--brand-accent);
+    color:#fff;
+}
+/* Scrolled state */
+.navbar.scrolled .lang-dropdown-toggle{
+    border-color:var(--border);
+    color:var(--text);
+}
+.navbar.scrolled .lang-dropdown-toggle:hover{
     border-color:var(--brand);
     color:var(--brand-dark);
 }
@@ -216,13 +355,14 @@ button{font-family:inherit;cursor:pointer}
 
 /* menu toggle — visible on mobile only */
 .menu-toggle{
-    display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px;
+    display:none;flex-direction:column;gap:6px;background:none;border:none;padding:6px;
     cursor:pointer;z-index:101;position:relative;
 }
-.menu-toggle span{display:block;width:24px;height:1.5px;background:var(--ink);transition:all var(--speed) var(--ease)}
-.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.menu-toggle span{display:block;width:26px;height:2px;background:rgba(255,255,255,.9);transition:all var(--speed) var(--ease)}
+.navbar.scrolled .menu-toggle span{background:var(--ink)}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);background:#fff}
 .menu-toggle.active span:nth-child(2){opacity:0}
-.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px);background:#fff}
 
 /* ---------- FULL-SCREEN MENU OVERLAY ---------- */
 .menu-overlay{
@@ -321,231 +461,136 @@ button{font-family:inherit;cursor:pointer}
 .menu-lang-btn:hover,.menu-lang-btn.active{color:var(--brand-accent)}
 .menu-lang-sep{color:rgba(255,255,255,.15);font-size:12px}
 
-/* ---------- LEFT ACCENT BAR (Heidrick Style) ---------- */
-.accent-bar{
-    position:fixed;left:0;top:0;bottom:0;
-    width:4px;background:var(--brand-accent);
-    z-index:99;
-}
-
-/* ---------- TAG DOT (Heidrick Style) ---------- */
-.tag-dot{
-    width:6px;height:6px;border-radius:50%;
-    background:var(--brand-accent);
-    margin-bottom:20px;
-}
-.tag-dot-light{background:var(--brand-accent)}
-
-/* ---------- HERO — Heidrick Inspired ---------- */
+/* ---------- HERO — Heidrick Premium Style ---------- */
 .hero{
     position:relative;
     min-height:100vh;
     display:flex;align-items:center;
-    padding:160px 0 120px;
-    background:var(--white);
+    padding:0;
+    background:linear-gradient(165deg, #0a1f12 0%, #1B2A3D 40%, #0f1923 100%);
     overflow:hidden;
 }
 
-/* Geometric rings — Heidrick circles */
-.hero-geo{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-
-.geo-ring{
-    position:absolute;border-radius:50%;
-    border:1px solid rgba(0,0,0,.07);
-}
-.geo-ring-1{width:420px;height:420px;top:12%;right:12%}
-.geo-ring-2{
-    width:600px;height:600px;top:30%;right:-5%;
-    border-color:rgba(0,0,0,.04);
-}
-.geo-ring-3{
-    width:200px;height:200px;top:25%;right:18%;
-    border:1.5px solid var(--brand-accent);opacity:.3;
+/* Hero background image with overlay */
+.hero::before{
+    content:'';position:absolute;inset:0;
+    background:url('images/hero-shanghai.jpg') center/cover no-repeat;
+    opacity:.15;z-index:0;
+    mix-blend-mode:overlay;
 }
 
-/* Diagonal lines — Heidrick style */
-.geo-line-diag{
-    position:absolute;
-    width:1.5px;
-    background:var(--brand-accent);opacity:.2;
-    transform-origin:top center;
+/* Animated gradient mesh */
+.hero::after{
+    content:'';position:absolute;inset:0;z-index:0;
+    background:radial-gradient(ellipse 80% 50% at 70% 40%, rgba(61,204,110,.08) 0%, transparent 50%),
+               radial-gradient(ellipse 60% 40% at 20% 80%, rgba(74,157,78,.06) 0%, transparent 40%);
+    animation:heroGradientShift 15s ease-in-out infinite alternate;
 }
-.geo-diag-1{height:800px;right:15%;top:-100px;transform:rotate(-30deg)}
-.geo-diag-2{height:600px;right:35%;top:200px;transform:rotate(-30deg);opacity:.1}
+@keyframes heroGradientShift{
+    0%{opacity:1;transform:scale(1)}
+    100%{opacity:.7;transform:scale(1.1)}
+}
 
-/* animated dots at circle intersections */
+.hero-content{position:relative;z-index:2;max-width:800px;padding:180px 0 140px}
+
+/* geometric decoration — Heidrick premium style */
+.hero-geo{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+
+.geo-circle{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06)}
+.geo-c1{width:600px;height:600px;top:5%;right:5%;border-color:rgba(61,204,110,.1)}
+.geo-c2{width:240px;height:240px;top:25%;right:18%;background:radial-gradient(circle,rgba(61,204,110,.08) 0%,transparent 70%);border:none}
+.geo-c3{width:800px;height:800px;bottom:-30%;right:-15%;border-color:rgba(255,255,255,.03)}
+
+.geo-line{position:absolute;background:var(--brand-accent);opacity:.08}
+.geo-l1{width:1px;height:600px;right:30%;top:-100px;transform:rotate(-25deg);transform-origin:top center}
+.geo-l2{width:700px;height:1px;right:-100px;top:60%;transform:rotate(-15deg)}
+
+/* animated dots — premium style */
 .geo-dot{
-    position:absolute;width:10px;height:10px;border-radius:50%;
+    position:absolute;width:8px;height:8px;border-radius:50%;
     background:var(--brand-accent);
-    animation:pulse 3s ease-in-out infinite;
+    animation:heroPulse 4s ease-in-out infinite;
 }
-.geo-dot-1{right:18%;top:25%;width:8px;height:8px}
-.geo-dot-2{right:7%;top:52%;width:8px;height:8px;animation-delay:1s}
-.geo-dot-3{right:30%;top:15%;width:5px;height:5px;animation-delay:2s;opacity:.5}
+.geo-dot-1{right:19%;top:27%;box-shadow:0 0 20px rgba(61,204,110,.5)}
+.geo-dot-2{right:45%;top:15%;width:5px;height:5px;animation-delay:2s;opacity:.6}
 
-@keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}
+@keyframes heroPulse{
+    0%,100%{opacity:.3;transform:scale(1)}
+    50%{opacity:1;transform:scale(1.8)}
+}
 
-.hero-content{position:relative;z-index:2;max-width:700px}
+/* Hero typography — premium dark theme */
 .hero h1{
     font-family:var(--ff-display);
-    font-size:clamp(48px,6vw,80px);
+    font-size:clamp(48px,6vw,84px);
     font-weight:800;
-    line-height:1.06;
-    color:var(--ink);
+    line-height:1.05;
+    color:#fff;
     letter-spacing:-.03em;
     margin-bottom:32px;
-}
-.hero-subtitle{
-    font-size:clamp(17px,1.4vw,20px);
-    color:var(--text);
-    font-weight:400;
-    margin-bottom:52px;
-    line-height:1.6;
+    text-shadow:0 2px 40px rgba(0,0,0,.3);
 }
 
-/* hero vertical accent bar — like Heidrick */
+.hero-subtitle{
+    font-size:clamp(18px,1.6vw,22px);
+    color:rgba(255,255,255,.7);
+    font-weight:400;
+    margin-bottom:56px;
+    line-height:1.7;
+    max-width:560px;
+}
+
+/* hero vertical accent bar — Heidrick signature */
 .hero-subtitle::before{
     content:'';display:block;
     width:3px;height:32px;
     background:var(--brand-accent);
-    margin-bottom:18px;
+    margin-bottom:20px;
+    box-shadow:0 0 20px rgba(61,204,110,.4);
 }
 
 .hero-actions{display:flex;gap:16px;flex-wrap:wrap}
 
-/* ---------- PIONEER SECTION — Dark Hero (Heidrick Style) ---------- */
-.pioneer-section{
-    background:var(--ink);
-    padding:120px 0;
-    position:relative;overflow:hidden;
-}
-.pioneer-geo{position:absolute;inset:0;pointer-events:none}
-.pioneer-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06)}
-.pioneer-ring-1{width:300px;height:300px;top:10%;left:8%}
-.pioneer-ring-2{width:180px;height:180px;top:30%;left:18%}
-.pioneer-ring-3{width:120px;height:120px;top:55%;left:5%}
-
-.pioneer-layout{
-    position:relative;z-index:1;
-    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-}
-.pioneer-stats{
-    display:grid;grid-template-columns:1fr 1fr;gap:40px;
-}
-.pioneer-stat{text-align:center;padding:32px 16px}
-.pioneer-stat-num{
-    display:block;font-size:52px;font-weight:800;
-    color:var(--brand-accent);line-height:1;
-    letter-spacing:-.03em;margin-bottom:8px;
-}
-.pioneer-stat-label{
-    font-size:13px;color:var(--text-muted);
-    text-transform:uppercase;letter-spacing:1.5px;
-}
-.pioneer-text h2{
-    color:var(--white);
-    font-size:clamp(36px,4vw,56px);
-    line-height:1.1;margin-bottom:24px;
-}
-.pioneer-desc{
-    color:rgba(255,255,255,.6);font-size:16px;
-    line-height:1.8;margin-bottom:40px;
-}
-.pioneer-actions{display:flex;gap:16px;flex-wrap:wrap}
-.btn-ghost{
-    background:transparent;color:var(--white);
-    border-color:rgba(255,255,255,.25);
-}
-.btn-ghost:hover{border-color:var(--brand-accent);color:var(--brand-accent)}
-
-/* ---------- FEATURED SECTION — Image + Text (Heidrick Style) ---------- */
-.featured-section{padding:100px 0}
-.featured-layout{
-    display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;
-}
-.featured-reverse .featured-layout{
-    grid-template-columns:1fr 1.2fr;
-    direction:rtl;
-}
-.featured-reverse .featured-layout > *{direction:ltr}
-.featured-image{overflow:hidden}
-.featured-image img{
-    width:100%;height:480px;object-fit:cover;
-    transition:transform .6s var(--ease);
-}
-.featured-image:hover img{transform:scale(1.03)}
-.featured-text p{
-    color:var(--text);font-size:16px;line-height:1.8;margin-bottom:32px;
-}
-.btn-dark{
-    background:var(--ink);color:var(--white);border-color:var(--ink);
-    display:inline-flex;align-items:center;gap:10px;
-    padding:15px 34px;font-size:14px;font-weight:600;
-    letter-spacing:.3px;border-radius:50px;cursor:pointer;
-    transition:all var(--speed) var(--ease);
-}
-.btn-dark::after{content:'▸';font-size:11px;transition:transform var(--speed) var(--ease)}
-.btn-dark:hover{background:var(--ink-light)}
-.btn-dark:hover::after{transform:translateX(3px)}
-
-/* Client logos inline */
-.client-logos-inline{
-    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;
-}
-.client-logos-inline .client-logo-item{
-    background:var(--surface);padding:24px 16px;text-align:center;
-    transition:all var(--speed) var(--ease);
-}
-.client-logos-inline .client-logo-item:hover{background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,.06)}
-.client-logos-inline .client-logo-img{max-height:36px;width:auto;margin:0 auto;opacity:.5;filter:grayscale(100%);transition:all var(--speed)}
-.client-logos-inline .client-logo-item:hover .client-logo-img{opacity:1;filter:none}
-.client-logos-inline .client-name{font-size:15px;font-weight:700;color:var(--text-muted);letter-spacing:.3px}
-
-/* ---------- CTA — Heidrick "Connect" Layout ---------- */
-.cta-section{
-    background:var(--ink);padding:100px 0;position:relative;overflow:hidden;
-}
-.cta-bg{position:absolute;inset:0;pointer-events:none}
-.cta-geo-ring{position:absolute;border-radius:50%;border:1px solid rgba(61,204,110,.1)}
-.cta-geo-1{width:350px;height:350px;left:-100px;top:-80px}
-.cta-geo-2{width:200px;height:200px;right:10%;bottom:-60px}
-.cta-diag{
-    position:absolute;width:1.5px;height:600px;
-    background:var(--brand-accent);opacity:.12;
-    right:20%;top:-100px;transform:rotate(-30deg);
-}
-.cta-layout{
-    position:relative;z-index:2;
-    display:flex;align-items:center;justify-content:space-between;gap:60px;
-}
-.cta-left{flex:1}
-.cta-left h2{color:var(--white);margin-bottom:16px}
-.cta-desc{color:var(--text-muted);font-size:17px;line-height:1.7;max-width:560px}
-.cta-right{flex-shrink:0}
-.btn-lg{padding:18px 44px;font-size:16px}
-.btn-accent{background:var(--brand-accent);color:var(--white);border-color:var(--brand-accent)}
-.btn-accent:hover{background:var(--brand);border-color:var(--brand)}
-
-/* ---------- BUTTONS — Heidrick pill style ---------- */
+/* ---------- BUTTONS — Heidrick premium style ---------- */
 .btn{
     display:inline-flex;align-items:center;gap:10px;
-    padding:15px 34px;
-    font-size:14px;font-weight:600;letter-spacing:.3px;
+    padding:16px 36px;
+    font-size:14px;font-weight:600;letter-spacing:.5px;
     border:1.5px solid transparent;
-    border-radius:50px;
+    border-radius:0;
     cursor:pointer;
     transition:all var(--speed) var(--ease);
     font-family:var(--ff);
     position:relative;overflow:hidden;
+    text-transform:uppercase;
 }
-.btn::after{content:'▸';font-size:11px;transition:transform var(--speed) var(--ease)}
+.btn::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg, transparent 0%, rgba(255,255,255,.1) 50%, transparent 100%);
+    transform:translateX(-100%);
+    transition:transform .6s var(--ease);
+}
+.btn:hover::before{transform:translateX(100%)}
+.btn::after{content:'';font-size:11px;transition:transform var(--speed) var(--ease)}
 .btn:hover::after{transform:translateX(3px)}
 
-.btn-primary{background:var(--brand-accent);color:var(--white);border-color:var(--brand-accent)}
-.btn-primary:hover{background:var(--brand);border-color:var(--brand);box-shadow:0 8px 30px rgba(61,204,110,.25)}
+.btn-primary{
+    background:var(--brand-accent);color:#fff;border-color:var(--brand-accent);
+    box-shadow:0 4px 20px rgba(61,204,110,.3);
+}
+.btn-primary:hover{
+    background:var(--brand);border-color:var(--brand);
+    box-shadow:0 8px 40px rgba(61,204,110,.4);
+    transform:translateY(-2px);
+}
 
-.btn-outline{background:transparent;color:var(--ink);border-color:var(--border)}
-.btn-outline:hover{border-color:var(--brand);color:var(--brand)}
+.btn-outline{
+    background:transparent;color:#fff;border-color:rgba(255,255,255,.3);
+}
+.btn-outline:hover{
+    border-color:var(--brand-accent);color:var(--brand-accent);
+    background:rgba(61,204,110,.1);
+}
 
 .btn-accent{background:var(--brand-accent);color:var(--white);border-color:var(--brand-accent)}
 .btn-accent:hover{background:var(--brand);border-color:var(--brand)}
@@ -553,31 +598,67 @@ button{font-family:inherit;cursor:pointer}
 .link-arrow{
     display:inline-flex;align-items:center;gap:8px;
     font-size:14px;font-weight:600;color:var(--brand-dark);
-    letter-spacing:.3px;
+    letter-spacing:.5px;text-transform:uppercase;
 }
-.link-arrow::after{content:'→';transition:transform var(--speed) var(--ease)}
+.link-arrow::after{content:'';transition:transform var(--speed) var(--ease)}
 .link-arrow:hover::after{transform:translateX(5px)}
 
-/* ---------- STATS BAR ---------- */
-.stats-bar{background:var(--ink);padding:56px 0}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:40px;text-align:center}
-.stat-number{display:block;font-size:48px;font-weight:800;color:var(--brand-accent);line-height:1;margin-bottom:8px;letter-spacing:-1px}
-.stat-label{font-size:14px;color:var(--text-muted);letter-spacing:.5px}
+/* ---------- STATS BAR — Heidrick premium ---------- */
+.stats-bar{
+    background:linear-gradient(135deg, #0f1923 0%, #1B2A3D 100%);
+    padding:72px 0;
+    position:relative;
+    overflow:hidden;
+}
+.stats-bar::before{
+    content:'';position:absolute;
+    width:400px;height:400px;border-radius:50%;
+    border:1px solid rgba(61,204,110,.08);
+    top:-200px;left:-100px;
+}
+.stats-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:48px;text-align:center;
+    position:relative;z-index:1;
+}
+.stat-item{
+    position:relative;
+    padding:0 24px;
+}
+.stat-item:not(:last-child)::after{
+    content:'';position:absolute;right:0;top:50%;
+    transform:translateY(-50%);
+    width:1px;height:60px;
+    background:linear-gradient(to bottom, transparent, rgba(255,255,255,.1), transparent);
+}
+.stat-number{
+    display:block;font-size:56px;font-weight:800;
+    color:var(--brand-accent);line-height:1;margin-bottom:12px;
+    letter-spacing:-2px;
+    text-shadow:0 0 40px rgba(61,204,110,.3);
+}
+.stat-label{font-size:13px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase}
 
-/* ---------- SECTIONS ---------- */
-.section{padding:120px 0}
+/* ---------- SECTIONS — Heidrick premium ---------- */
+.section{padding:140px 0}
 .section-tag{
-    display:inline-block;font-size:12px;font-weight:700;
-    text-transform:uppercase;letter-spacing:3px;
-    color:var(--brand-dark);margin-bottom:20px;
+    display:inline-block;font-size:11px;font-weight:700;
+    text-transform:uppercase;letter-spacing:4px;
+    color:var(--brand-dark);margin-bottom:24px;
+    position:relative;padding-left:28px;
+}
+.section-tag::before{
+    content:'';position:absolute;left:0;top:50%;
+    transform:translateY(-50%);
+    width:18px;height:2px;background:var(--brand-accent);
 }
 .section-tag.light{color:var(--brand-accent)}
+.section-tag.light::before{background:var(--brand-accent)}
 h2{
     font-family:var(--ff-display);
-    font-size:clamp(34px,3.6vw,52px);
+    font-size:clamp(36px,4vw,58px);
     font-weight:800;color:var(--ink);
-    line-height:1.12;margin-bottom:28px;
-    letter-spacing:-.02em;
+    line-height:1.1;margin-bottom:32px;
+    letter-spacing:-.03em;
 }
 h2.light{color:var(--white)}
 
@@ -596,31 +677,32 @@ h2.light{color:var(--white)}
 }
 .visual-card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,.08)}
 
-/* About Visual — Image Layout */
+/* About Visual — Image Layout — Heidrick premium */
 .about-visual-images{
-    position:relative;height:420px;
+    position:relative;height:480px;
 }
 .about-img-main{
-    position:absolute;top:0;left:0;width:72%;height:85%;
+    position:absolute;top:0;left:0;width:75%;height:88%;
     overflow:hidden;
 }
-.about-img-main img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.about-img-main:hover img{transform:scale(1.03)}
+.about-img-main img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.about-img-main:hover img{transform:scale(1.04)}
 .about-img-accent{
-    position:absolute;bottom:0;right:0;width:45%;height:55%;
-    border:5px solid var(--white);overflow:hidden;
-    box-shadow:0 8px 30px rgba(0,0,0,.12);
+    position:absolute;bottom:-20px;right:-20px;width:50%;height:55%;
+    border:6px solid var(--white);overflow:hidden;
+    box-shadow:0 20px 50px rgba(0,0,0,.15);
 }
-.about-img-accent img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
-.about-img-accent:hover img{transform:scale(1.05)}
+.about-img-accent img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+.about-img-accent:hover img{transform:scale(1.06)}
 .about-img-badge{
-    position:absolute;top:60%;left:60%;transform:translate(-50%,-50%);
-    background:var(--brand-dark);color:var(--white);
-    padding:20px 24px;text-align:center;
-    box-shadow:0 8px 24px rgba(59,125,60,.3);
+    position:absolute;top:55%;left:55%;transform:translate(-50%,-50%);
+    background:linear-gradient(135deg, var(--brand-dark) 0%, #2d6830 100%);
+    color:var(--white);
+    padding:28px 32px;text-align:center;
+    box-shadow:0 16px 40px rgba(59,125,60,.4);
 }
-.about-img-badge .badge-number{display:block;font-size:36px;font-weight:800;line-height:1}
-.about-img-badge .badge-text{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;margin-top:4px;opacity:.85}
+.about-img-badge .badge-number{display:block;font-size:44px;font-weight:800;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.2)}
+.about-img-badge .badge-text{display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-top:6px;opacity:.85}
 
 .visual-icon{
     width:52px;height:52px;
@@ -650,48 +732,69 @@ h2.light{color:var(--white)}
     bottom:-100px;left:-100px;
 }
 
-/* ---------- FOCUS GRID ---------- */
-.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:56px;background:rgba(255,255,255,.08)}
+/* ---------- FOCUS GRID — Heidrick premium ---------- */
+.focus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:64px;background:rgba(255,255,255,.06)}
 .focus-card{
-    background:var(--ink);
-    padding:48px 36px;
+    background:rgba(27,42,61,.8);
+    padding:56px 40px;
     transition:all var(--speed) var(--ease);
     position:relative;
+    overflow:hidden;
 }
 .focus-card::before{
-    content:'';position:absolute;bottom:0;left:36px;right:36px;
-    height:2px;background:var(--brand-accent);
+    content:'';position:absolute;bottom:0;left:40px;right:40px;
+    height:3px;background:var(--brand-accent);
     transform:scaleX(0);transform-origin:left;
     transition:transform var(--speed) var(--ease);
 }
+.focus-card::after{
+    content:'';position:absolute;top:0;right:0;
+    width:150px;height:150px;border-radius:50%;
+    background:radial-gradient(circle,rgba(61,204,110,.06) 0%,transparent 70%);
+    transform:translate(50%,-50%);
+    transition:transform .6s var(--ease);
+}
 .focus-card:hover::before{transform:scaleX(1)}
 .focus-card:hover{background:var(--ink-light)}
-.focus-icon{color:var(--brand-accent);margin-bottom:24px}
-.focus-card h3{color:var(--white);font-size:24px;margin-bottom:14px;font-weight:700;letter-spacing:-.5px}
-.focus-card p{color:var(--text-muted);font-size:14px;line-height:1.7}
+.focus-card:hover::after{transform:translate(30%,-30%)}
+.focus-icon{color:var(--brand-accent);margin-bottom:28px}
+.focus-icon svg{filter:drop-shadow(0 0 15px rgba(61,204,110,.3))}
+.focus-card h3{color:var(--white);font-size:26px;margin-bottom:16px;font-weight:700;letter-spacing:-.5px}
+.focus-card p{color:rgba(255,255,255,.5);font-size:14px;line-height:1.8}
 
-/* ---------- SERVICES GRID ---------- */
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:56px;background:var(--border)}
+/* ---------- SERVICES GRID — Heidrick premium ---------- */
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:64px;background:var(--border)}
 .service-card{
     background:var(--white);
-    padding:48px 44px;
+    padding:56px 48px;
     transition:all var(--speed) var(--ease);
     position:relative;
+    overflow:hidden;
 }
 .service-card::before{
-    content:'';position:absolute;top:0;left:0;width:3px;height:0;
+    content:'';position:absolute;top:0;left:0;width:4px;height:0;
     background:var(--brand-accent);transition:height var(--speed) var(--ease);
+}
+.service-card::after{
+    content:'';position:absolute;bottom:0;right:0;
+    width:200px;height:200px;border-radius:50%;
+    background:radial-gradient(circle,rgba(61,204,110,.04) 0%,transparent 70%);
+    transform:translate(50%,50%);
+    transition:transform .6s var(--ease);
 }
 .service-card:hover{background:var(--surface)}
 .service-card:hover::before{height:100%}
+.service-card:hover::after{transform:translate(30%,30%)}
 
 .service-number{
-    font-size:56px;font-weight:800;
-    color:var(--surface);line-height:1;margin-bottom:16px;
-    letter-spacing:-2px;
+    font-size:72px;font-weight:800;
+    color:var(--surface);line-height:1;margin-bottom:20px;
+    letter-spacing:-3px;
+    transition:color var(--speed) var(--ease);
 }
-.service-card h3{font-size:22px;color:var(--ink);margin-bottom:14px;font-weight:700;letter-spacing:-.3px}
-.service-card p{color:var(--text);font-size:14px;line-height:1.7;margin-bottom:24px}
+.service-card:hover .service-number{color:rgba(61,204,110,.1)}
+.service-card h3{font-size:24px;color:var(--ink);margin-bottom:16px;font-weight:700;letter-spacing:-.3px}
+.service-card p{color:var(--text);font-size:15px;line-height:1.8;margin-bottom:28px}
 
 /* ---------- CLIENTS ---------- */
 .clients-section{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
@@ -705,16 +808,21 @@ h2.light{color:var(--white)}
 .client-logo-img{max-height:48px;width:auto;margin:0 auto;opacity:.6;transition:opacity var(--speed) var(--ease);filter:grayscale(100%)}
 .client-logo-item:hover .client-logo-img{opacity:1;filter:none}
 
-/* ---------- CTA ---------- */
+/* ---------- CTA — Heidrick premium ---------- */
 .cta-section{
-    background:var(--ink);padding:120px 0;position:relative;overflow:hidden;text-align:center;
+    background:linear-gradient(165deg, #0a1f12 0%, #1B2A3D 40%, #0f1923 100%);
+    padding:140px 0;position:relative;overflow:hidden;text-align:center;
+}
+.cta-section::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(ellipse 60% 50% at 50% 100%, rgba(61,204,110,.1) 0%, transparent 50%);
 }
 .cta-bg{position:absolute;inset:0;pointer-events:none}
-.cta-circle{position:absolute;border-radius:50%;border:1px solid rgba(61,204,110,.12)}
-.cta-circle-1{width:400px;height:400px;left:-120px;top:-80px}
-.cta-circle-2{width:250px;height:250px;right:-60px;bottom:-60px}
+.cta-circle{position:absolute;border-radius:50%;border:1px solid rgba(61,204,110,.08)}
+.cta-circle-1{width:500px;height:500px;left:-150px;top:-100px}
+.cta-circle-2{width:300px;height:300px;right:-80px;bottom:-80px}
 .cta-content{position:relative;z-index:2}
-.cta-desc{color:var(--text-muted);font-size:18px;margin-bottom:40px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.7}
+.cta-desc{color:rgba(255,255,255,.6);font-size:18px;margin-bottom:48px;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.8}
 
 /* ---------- FOOTER ---------- */
 .footer{background:#0F1923;padding:72px 0 36px}
@@ -886,43 +994,40 @@ h2.light{color:var(--white)}
     .nav-container{padding:0 32px}
     .nav-links{display:none}
     .menu-toggle{display:flex}
+    .menu-toggle span{background:#fff}
+    .navbar.scrolled .menu-toggle span{background:var(--ink)}
     .two-col,.contact-grid{grid-template-columns:1fr;gap:48px}
     .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat-item:not(:last-child)::after{display:none}
     .focus-grid,.services-grid,.mvv-grid,.team-grid,.insights-grid,.process-steps{grid-template-columns:1fr}
     .clients-grid{grid-template-columns:repeat(2,1fr)}
     .footer-grid{grid-template-columns:1fr 1fr}
-    .section{padding:80px 0}
-    .featured-section{padding:80px 0}
+    .section{padding:100px 0}
     .service-detail-card{grid-template-columns:1fr}
     .menu-overlay-content{padding:0 32px}
     .menu-overlay-body{flex-direction:column;align-items:flex-start;gap:40px}
     .menu-overlay-info{text-align:left;align-self:flex-start}
     .menu-overlay-lang{justify-content:flex-start}
-    .pioneer-layout{grid-template-columns:1fr;gap:48px}
-    .pioneer-stats{grid-template-columns:repeat(2,1fr)}
-    .featured-layout,.featured-reverse .featured-layout{grid-template-columns:1fr;direction:ltr}
-    .featured-image img{height:360px}
-    .cta-layout{flex-direction:column;text-align:center}
-    .cta-desc{margin:0 auto}
-    .accent-bar{display:none}
+
+    .logo-intro-text .intro-brand{font-size:36px;letter-spacing:10px}
 }
 @media(max-width:640px){
     .container{padding:0 20px}
     .nav-container{padding:0 20px}
     .stats-grid,.clients-grid{grid-template-columns:1fr 1fr}
     .footer-grid{grid-template-columns:1fr;gap:32px}
-    .hero{min-height:auto;padding:140px 0 80px}
+    .hero{min-height:auto;padding:160px 0 100px}
+    .hero h1{font-size:clamp(36px,8vw,48px)}
     .about-visual{height:280px}
-    .about-visual-images{height:300px}
+    .about-visual-images{height:320px}
     .hero-actions{flex-direction:column}
     .menu-overlay-content{padding:0 20px}
     .menu-overlay-links a{font-size:32px}
-    .logo-main{font-size:22px;letter-spacing:4px}
+    .logo-main{font-size:20px;letter-spacing:4px}
     .logo-sub{font-size:8px;letter-spacing:2px}
-    .pioneer-stats{grid-template-columns:1fr 1fr;gap:20px}
-    .pioneer-stat-num{font-size:36px}
-    .featured-image img{height:260px}
-    .client-logos-inline{grid-template-columns:1fr 1fr}
+    .navbar.scrolled .logo-main{font-size:18px;letter-spacing:3px}
+    .logo-intro-text .intro-brand{font-size:28px;letter-spacing:6px}
+    .logo-intro-text .intro-tagline{font-size:11px;letter-spacing:4px}
 }
 
 /* ---------- CASES HERO ---------- */

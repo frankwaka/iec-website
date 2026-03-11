@@ -1,76 +1,108 @@
 // IEC Website — Main JavaScript
 
-// ===== LOGO ENTRANCE ANIMATION (homepage only) =====
+// ===== LOGO ENTRANCE ANIMATION — Centered logo only =====
 (function() {
-    const overlay = document.getElementById('logoIntro');
-    const diamond = document.getElementById('logoDiamond');
-    const navbar = document.getElementById('navbar');
-    if (!overlay || !diamond || !navbar) return;
+    try {
+        var overlay = document.getElementById('logoIntro');
+        var diamond = document.getElementById('logoDiamond');
+        var navbar  = document.getElementById('navbar');
+        var glow1   = document.getElementById('logoGlow1');
+        var glow2   = document.getElementById('logoGlow2');
+        var glow3   = document.getElementById('logoGlow3');
+        var logoText = document.getElementById('logoText');
+        var cleaned  = false;
 
-    // Only play on first visit per session
-    const played = sessionStorage.getItem('iec_intro_played');
-    if (played) {
-        overlay.remove();
-        navbar.classList.remove('intro-hidden');
-        return;
-    }
-
-    // Prevent scroll during animation
-    document.body.style.overflow = 'hidden';
-
-    // Get the navbar logo icon's final position
-    function getTargetRect() {
-        const navLogo = navbar.querySelector('.logo-icon-img');
-        if (!navLogo) return null;
-        return navLogo.getBoundingClientRect();
-    }
-
-    // Phase 1: Diamond pulses at center (brief pause)
-    // Phase 2: Diamond shrinks & moves to navbar position
-    // Phase 3: Overlay fades out, navbar reveals with stagger
-    setTimeout(() => {
-        const targetRect = getTargetRect();
-        const diamondRect = diamond.getBoundingClientRect();
-
-        if (targetRect) {
-            // Calculate translation to navbar logo position
-            const dx = targetRect.left + targetRect.width / 2 - (diamondRect.left + diamondRect.width / 2);
-            const dy = targetRect.top + targetRect.height / 2 - (diamondRect.top + diamondRect.height / 2);
-            const scale = targetRect.height / diamondRect.height;
-
-            // Animate diamond to navbar position
-            diamond.style.transition = 'transform 0.8s cubic-bezier(.22,1,.36,1), opacity 0.4s ease';
-            diamond.style.transform = `translate(${dx}px, ${dy}px) scale(${scale})`;
-        } else {
-            // Fallback: just shrink and fade
-            diamond.style.transition = 'transform 0.8s cubic-bezier(.22,1,.36,1), opacity 0.4s ease';
-            diamond.style.transform = 'scale(0.15)';
+        // Failsafe: always remove overlay after 5s no matter what
+        function cleanup() {
+            if (cleaned) return;
+            cleaned = true;
+            try {
+                if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                if (navbar) {
+                    navbar.classList.remove('intro-hidden');
+                    navbar.classList.remove('intro-reveal');
+                }
+                document.body.style.overflow = '';
+                sessionStorage.setItem('iec_intro_played', '1');
+            } catch(e) {}
         }
 
-        // Phase 3: After diamond moves, fade overlay & reveal navbar
-        setTimeout(() => {
-            overlay.classList.add('animating');
-            overlay.classList.add('done');
+        // SAFETY NET — if anything fails, page still works after 5s
+        setTimeout(cleanup, 5000);
 
-            // Reveal navbar
-            navbar.classList.remove('intro-hidden');
-            navbar.classList.add('intro-reveal');
+        if (!overlay || !diamond || !navbar) { cleanup(); return; }
 
-            // Stagger nav links
-            const navLinks = navbar.querySelector('.nav-links');
-            if (navLinks) navLinks.classList.add('animate-entrance');
+        // Only play on first visit per session
+        var played = false;
+        try { played = sessionStorage.getItem('iec_intro_played'); } catch(e) {}
+        if (played) { cleanup(); return; }
 
-            document.body.style.overflow = '';
-            sessionStorage.setItem('iec_intro_played', '1');
+        // Prevent scroll during animation
+        document.body.style.overflow = 'hidden';
 
-            // Clean up overlay after fade
-            setTimeout(() => {
-                overlay.remove();
-                navbar.classList.remove('intro-reveal');
-                if (navLinks) navLinks.classList.remove('animate-entrance');
-            }, 800);
-        }, 700);
-    }, 600); // initial pause to let diamond sit centered
+        // Phase 1: Main diamond appears with staggered glow rings (200ms)
+        setTimeout(function() {
+            try {
+                diamond.classList.add('animate');
+                if (glow1) setTimeout(function(){ glow1.classList.add('animate'); }, 100);
+                if (glow2) setTimeout(function(){ glow2.classList.add('animate'); }, 300);
+                if (glow3) setTimeout(function(){ glow3.classList.add('animate'); }, 500);
+            } catch(e) {}
+        }, 200);
+
+        // Phase 2: Brand text appears (800ms)
+        setTimeout(function() {
+            try { if (logoText) logoText.classList.add('animate'); } catch(e) {}
+        }, 800);
+
+        // Phase 3: Elegant fade out (2000ms)
+        setTimeout(function() {
+            try {
+                diamond.style.transition = 'opacity 0.5s ease-out, transform 0.8s ease-out';
+                diamond.style.opacity = '0';
+                diamond.style.transform = 'scale(0.9)';
+                if (logoText) {
+                    logoText.style.transition = 'opacity 0.4s ease-out';
+                    logoText.style.opacity = '0';
+                }
+            } catch(e) {}
+
+            // Phase 4: Fade overlay & reveal navbar (600ms after phase 3)
+            setTimeout(function() {
+                try {
+                    if (overlay) {
+                        overlay.classList.add('animating');
+                        overlay.classList.add('done');
+                    }
+                    if (navbar) {
+                        navbar.classList.remove('intro-hidden');
+                        navbar.classList.add('intro-reveal');
+                        var navLinks = navbar.querySelector('.nav-links');
+                        if (navLinks) navLinks.classList.add('animate-entrance');
+                    }
+                    document.body.style.overflow = '';
+                    sessionStorage.setItem('iec_intro_played', '1');
+
+                    // Clean up overlay after fade
+                    setTimeout(function() {
+                        cleanup();
+                        try {
+                            var navLinks2 = navbar ? navbar.querySelector('.nav-links') : null;
+                            if (navLinks2) navLinks2.classList.remove('animate-entrance');
+                        } catch(e) {}
+                    }, 800);
+                } catch(e) { cleanup(); }
+            }, 600);
+        }, 2000);
+
+    } catch(e) {
+        // If anything crashes, forcefully remove overlay
+        var ov = document.getElementById('logoIntro');
+        if (ov && ov.parentNode) ov.parentNode.removeChild(ov);
+        var nb = document.getElementById('navbar');
+        if (nb) nb.classList.remove('intro-hidden');
+        document.body.style.overflow = '';
+    }
 })();
 
 // Navbar scroll effect
