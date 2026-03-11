@@ -321,72 +321,210 @@ button{font-family:inherit;cursor:pointer}
 .menu-lang-btn:hover,.menu-lang-btn.active{color:var(--brand-accent)}
 .menu-lang-sep{color:rgba(255,255,255,.15);font-size:12px}
 
-/* ---------- HERO ---------- */
+/* ---------- LEFT ACCENT BAR (Heidrick Style) ---------- */
+.accent-bar{
+    position:fixed;left:0;top:0;bottom:0;
+    width:4px;background:var(--brand-accent);
+    z-index:99;
+}
+
+/* ---------- TAG DOT (Heidrick Style) ---------- */
+.tag-dot{
+    width:6px;height:6px;border-radius:50%;
+    background:var(--brand-accent);
+    margin-bottom:20px;
+}
+.tag-dot-light{background:var(--brand-accent)}
+
+/* ---------- HERO — Heidrick Inspired ---------- */
 .hero{
     position:relative;
     min-height:100vh;
     display:flex;align-items:center;
-    padding:140px 0 100px;
+    padding:160px 0 120px;
     background:var(--white);
     overflow:hidden;
 }
-.hero::before{
-    content:'';position:absolute;inset:0;
-    background:url('images/hero-shanghai.jpg') center/cover no-repeat;
-    opacity:.06;z-index:0;
-}
-.hero-content{position:relative;z-index:2}
 
-/* geometric decoration — Heidrick style circles & lines */
+/* Geometric rings — Heidrick circles */
 .hero-geo{position:absolute;inset:0;pointer-events:none;overflow:hidden}
 
-.geo-circle{position:absolute;border-radius:50%;border:1px solid rgba(0,0,0,.06)}
-.geo-c1{width:520px;height:520px;top:8%;right:8%}
-.geo-c2{width:180px;height:180px;top:32%;right:22%;background:radial-gradient(circle,rgba(74,157,78,.12) 0%,transparent 70%);border:none}
-.geo-c3{width:700px;height:700px;bottom:-20%;right:-8%;border-color:rgba(0,0,0,.03)}
+.geo-ring{
+    position:absolute;border-radius:50%;
+    border:1px solid rgba(0,0,0,.07);
+}
+.geo-ring-1{width:420px;height:420px;top:12%;right:12%}
+.geo-ring-2{
+    width:600px;height:600px;top:30%;right:-5%;
+    border-color:rgba(0,0,0,.04);
+}
+.geo-ring-3{
+    width:200px;height:200px;top:25%;right:18%;
+    border:1.5px solid var(--brand-accent);opacity:.3;
+}
 
-.geo-line{position:absolute;background:var(--brand-accent);opacity:.12}
-.geo-l1{width:1.5px;height:500px;right:28%;top:-50px;transform:rotate(-25deg);transform-origin:top center}
-.geo-l2{width:600px;height:1.5px;right:-80px;top:62%;transform:rotate(-18deg)}
+/* Diagonal lines — Heidrick style */
+.geo-line-diag{
+    position:absolute;
+    width:1.5px;
+    background:var(--brand-accent);opacity:.2;
+    transform-origin:top center;
+}
+.geo-diag-1{height:800px;right:15%;top:-100px;transform:rotate(-30deg)}
+.geo-diag-2{height:600px;right:35%;top:200px;transform:rotate(-30deg);opacity:.1}
 
-/* animated dot */
+/* animated dots at circle intersections */
 .geo-dot{
     position:absolute;width:10px;height:10px;border-radius:50%;
     background:var(--brand-accent);
     animation:pulse 3s ease-in-out infinite;
 }
-.geo-dot-1{right:22%;top:33%}
-.geo-dot-2{right:42%;top:18%;width:6px;height:6px;animation-delay:1.5s;opacity:.5}
+.geo-dot-1{right:18%;top:25%;width:8px;height:8px}
+.geo-dot-2{right:7%;top:52%;width:8px;height:8px;animation-delay:1s}
+.geo-dot-3{right:30%;top:15%;width:5px;height:5px;animation-delay:2s;opacity:.5}
 
 @keyframes pulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:1;transform:scale(1.6)}}
 
-.hero-content{position:relative;z-index:2;max-width:680px}
+.hero-content{position:relative;z-index:2;max-width:700px}
 .hero h1{
     font-family:var(--ff-display);
-    font-size:clamp(44px,5.8vw,76px);
+    font-size:clamp(48px,6vw,80px);
     font-weight:800;
-    line-height:1.08;
+    line-height:1.06;
     color:var(--ink);
     letter-spacing:-.03em;
-    margin-bottom:28px;
+    margin-bottom:32px;
 }
 .hero-subtitle{
     font-size:clamp(17px,1.4vw,20px);
     color:var(--text);
     font-weight:400;
-    margin-bottom:48px;
+    margin-bottom:52px;
     line-height:1.6;
 }
 
 /* hero vertical accent bar — like Heidrick */
 .hero-subtitle::before{
     content:'';display:block;
-    width:3px;height:28px;
+    width:3px;height:32px;
     background:var(--brand-accent);
-    margin-bottom:16px;
+    margin-bottom:18px;
 }
 
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap}
+
+/* ---------- PIONEER SECTION — Dark Hero (Heidrick Style) ---------- */
+.pioneer-section{
+    background:var(--ink);
+    padding:120px 0;
+    position:relative;overflow:hidden;
+}
+.pioneer-geo{position:absolute;inset:0;pointer-events:none}
+.pioneer-ring{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.06)}
+.pioneer-ring-1{width:300px;height:300px;top:10%;left:8%}
+.pioneer-ring-2{width:180px;height:180px;top:30%;left:18%}
+.pioneer-ring-3{width:120px;height:120px;top:55%;left:5%}
+
+.pioneer-layout{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.pioneer-stats{
+    display:grid;grid-template-columns:1fr 1fr;gap:40px;
+}
+.pioneer-stat{text-align:center;padding:32px 16px}
+.pioneer-stat-num{
+    display:block;font-size:52px;font-weight:800;
+    color:var(--brand-accent);line-height:1;
+    letter-spacing:-.03em;margin-bottom:8px;
+}
+.pioneer-stat-label{
+    font-size:13px;color:var(--text-muted);
+    text-transform:uppercase;letter-spacing:1.5px;
+}
+.pioneer-text h2{
+    color:var(--white);
+    font-size:clamp(36px,4vw,56px);
+    line-height:1.1;margin-bottom:24px;
+}
+.pioneer-desc{
+    color:rgba(255,255,255,.6);font-size:16px;
+    line-height:1.8;margin-bottom:40px;
+}
+.pioneer-actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn-ghost{
+    background:transparent;color:var(--white);
+    border-color:rgba(255,255,255,.25);
+}
+.btn-ghost:hover{border-color:var(--brand-accent);color:var(--brand-accent)}
+
+/* ---------- FEATURED SECTION — Image + Text (Heidrick Style) ---------- */
+.featured-section{padding:100px 0}
+.featured-layout{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center;
+}
+.featured-reverse .featured-layout{
+    grid-template-columns:1fr 1.2fr;
+    direction:rtl;
+}
+.featured-reverse .featured-layout > *{direction:ltr}
+.featured-image{overflow:hidden}
+.featured-image img{
+    width:100%;height:480px;object-fit:cover;
+    transition:transform .6s var(--ease);
+}
+.featured-image:hover img{transform:scale(1.03)}
+.featured-text p{
+    color:var(--text);font-size:16px;line-height:1.8;margin-bottom:32px;
+}
+.btn-dark{
+    background:var(--ink);color:var(--white);border-color:var(--ink);
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 34px;font-size:14px;font-weight:600;
+    letter-spacing:.3px;border-radius:50px;cursor:pointer;
+    transition:all var(--speed) var(--ease);
+}
+.btn-dark::after{content:'▸';font-size:11px;transition:transform var(--speed) var(--ease)}
+.btn-dark:hover{background:var(--ink-light)}
+.btn-dark:hover::after{transform:translateX(3px)}
+
+/* Client logos inline */
+.client-logos-inline{
+    display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;
+}
+.client-logos-inline .client-logo-item{
+    background:var(--surface);padding:24px 16px;text-align:center;
+    transition:all var(--speed) var(--ease);
+}
+.client-logos-inline .client-logo-item:hover{background:var(--white);box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.client-logos-inline .client-logo-img{max-height:36px;width:auto;margin:0 auto;opacity:.5;filter:grayscale(100%);transition:all var(--speed)}
+.client-logos-inline .client-logo-item:hover .client-logo-img{opacity:1;filter:none}
+.client-logos-inline .client-name{font-size:15px;font-weight:700;color:var(--text-muted);letter-spacing:.3px}
+
+/* ---------- CTA — Heidrick "Connect" Layout ---------- */
+.cta-section{
+    background:var(--ink);padding:100px 0;position:relative;overflow:hidden;
+}
+.cta-bg{position:absolute;inset:0;pointer-events:none}
+.cta-geo-ring{position:absolute;border-radius:50%;border:1px solid rgba(61,204,110,.1)}
+.cta-geo-1{width:350px;height:350px;left:-100px;top:-80px}
+.cta-geo-2{width:200px;height:200px;right:10%;bottom:-60px}
+.cta-diag{
+    position:absolute;width:1.5px;height:600px;
+    background:var(--brand-accent);opacity:.12;
+    right:20%;top:-100px;transform:rotate(-30deg);
+}
+.cta-layout{
+    position:relative;z-index:2;
+    display:flex;align-items:center;justify-content:space-between;gap:60px;
+}
+.cta-left{flex:1}
+.cta-left h2{color:var(--white);margin-bottom:16px}
+.cta-desc{color:var(--text-muted);font-size:17px;line-height:1.7;max-width:560px}
+.cta-right{flex-shrink:0}
+.btn-lg{padding:18px 44px;font-size:16px}
+.btn-accent{background:var(--brand-accent);color:var(--white);border-color:var(--brand-accent)}
+.btn-accent:hover{background:var(--brand);border-color:var(--brand)}
 
 /* ---------- BUTTONS — Heidrick pill style ---------- */
 .btn{
@@ -754,11 +892,19 @@ h2.light{color:var(--white)}
     .clients-grid{grid-template-columns:repeat(2,1fr)}
     .footer-grid{grid-template-columns:1fr 1fr}
     .section{padding:80px 0}
+    .featured-section{padding:80px 0}
     .service-detail-card{grid-template-columns:1fr}
     .menu-overlay-content{padding:0 32px}
     .menu-overlay-body{flex-direction:column;align-items:flex-start;gap:40px}
     .menu-overlay-info{text-align:left;align-self:flex-start}
     .menu-overlay-lang{justify-content:flex-start}
+    .pioneer-layout{grid-template-columns:1fr;gap:48px}
+    .pioneer-stats{grid-template-columns:repeat(2,1fr)}
+    .featured-layout,.featured-reverse .featured-layout{grid-template-columns:1fr;direction:ltr}
+    .featured-image img{height:360px}
+    .cta-layout{flex-direction:column;text-align:center}
+    .cta-desc{margin:0 auto}
+    .accent-bar{display:none}
 }
 @media(max-width:640px){
     .container{padding:0 20px}
@@ -773,6 +919,10 @@ h2.light{color:var(--white)}
     .menu-overlay-links a{font-size:32px}
     .logo-main{font-size:22px;letter-spacing:4px}
     .logo-sub{font-size:8px;letter-spacing:2px}
+    .pioneer-stats{grid-template-columns:1fr 1fr;gap:20px}
+    .pioneer-stat-num{font-size:36px}
+    .featured-image img{height:260px}
+    .client-logos-inline{grid-template-columns:1fr 1fr}
 }
 
 /* ---------- CASES HERO ---------- */
