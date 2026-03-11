@@ -2,10 +2,13 @@
   "name": "iec-website",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "serve -l 3000"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "serve": "^14.2.0"
+    "vite": "^5.0.0"
   }
 }
