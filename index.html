@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEC | Inventor Partner - Healthcare Executive Search</title>
+    <meta name="description" content="IEC - Professional healthcare executive search and HR consulting firm based in Shanghai. Specializing in life sciences talent acquisition across China, Taiwan and Asia Pacific.">
+    <meta name="keywords" content="IEC, 聿丰咨询, healthcare executive search, 医疗猎头, life sciences recruitment, HR consulting, 人力资源咨询, Shanghai, 上海">
+    <meta property="og:title" content="IEC | Inventor Partner - Healthcare Executive Search">
+    <meta property="og:description" content="专注医疗与生命科学领域的人力资源合作伙伴。Executive Search, HR Consulting, RPO across China, Taiwan and APAC.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ieconsulting.com.cn">
+    <link rel="canonical" href="https://ieconsulting.com.cn">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "IEC Inventor Partner Enterprise Management Consulting",
+        "alternateName": ["聿丰咨询", "IEC Consulting"],
+        "url": "https://ieconsulting.com.cn",
+        "email": "info@ieconsulting.com.cn",
+        "foundingDate": "2023",
+        "description": "Professional healthcare and life sciences executive search and HR consulting firm based in Shanghai, serving China, Taiwan and Asia Pacific.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Shanghai",
+            "addressCountry": "CN"
+        },
+        "areaServed": [
+            {"@type": "Country", "name": "China"},
+            {"@type": "Country", "name": "Taiwan"},
+            {"@type": "Place", "name": "Asia Pacific"}
+        ],
+        "knowsAbout": ["Healthcare Executive Search", "Life Sciences Recruitment", "HR Consulting", "RPO", "Talent Acquisition"],
+        "sameAs": []
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "What industries does IEC specialize in?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "IEC specializes in Healthcare and Life Sciences, covering R&D (Clinical, CMC, RA), Commercial (Marketing, Sales), and Enabling functions (HR, Finance, Legal, Supply Chain) across pharmaceutical, biotech, medical device, and CRO companies."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What services does IEC provide?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "IEC provides Executive Search, RPO (Recruitment Process Outsourcing), HR Consulting (Organization Development, Compensation Design), Startup Partnering (local team building for MNCs entering China), Business Intelligence (market survey, talent mapping), and Talent Review & Development services."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "What regions does IEC serve?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "IEC is headquartered in Shanghai, China and serves clients across mainland China, Taiwan, and the broader Asia Pacific region, helping both local and multinational healthcare companies with their talent needs."
+                }
+            }
+        ]
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Logo Entrance Animation Overlay (homepage only) -->
+    <div class="logo-intro-overlay" id="logoIntro">
+        <div class="logo-intro-diamond" id="logoDiamond">
+            <img src="images/logo-icon.png" alt="IEC">
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar intro-hidden" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-icon.png" alt="IEC" class="logo-icon-img" height="36">
+                <div class="logo-text">
+                    <span class="logo-main">IEC</span>
+                    <span class="logo-sub" data-i18n="logo_company">INVENTOR PARTNER</span>
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" class="active" data-i18n="nav_home">首页</a>
+                <a href="about.html" data-i18n="nav_about">关于我们</a>
+                <a href="services.html" data-i18n="nav_services">服务</a>
+                <a href="team.html" data-i18n="nav_team">团队</a>
+                <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+            </div>
+            <div class="nav-right">
+                <div class="lang-dropdown">
+                    <button class="lang-dropdown-toggle" id="langToggle">
+                        <span class="lang-current">简体中文</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langMenu">
+                        <button class="lang-option active" data-lang="zh-CN">简体中文</button>
+                        <button class="lang-option" data-lang="zh-TW">繁體中文</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full-screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-overlay-bg"></div>
+        <div class="menu-overlay-content">
+            <div class="menu-overlay-header">
+                <a href="index.html" class="menu-overlay-logo">
+                    <img src="images/logo-icon.png" alt="IEC" height="32">
+                    <span>IEC</span>
+                </a>
+                <button class="menu-close" id="menuClose" aria-label="Close">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="menu-overlay-body">
+                <div class="menu-overlay-links">
+                    <a href="index.html" class="active" data-i18n="nav_home">首页</a>
+                    <a href="about.html" data-i18n="nav_about">关于我们</a>
+                    <a href="services.html" data-i18n="nav_services">服务</a>
+                    <a href="team.html" data-i18n="nav_team">团队</a>
+                    <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                    <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+                </div>
+                <div class="menu-overlay-info">
+                    <div class="menu-overlay-contact">
+                        <p>info@ieconsulting.com.cn</p>
+                        <p>Shanghai, China</p>
+                    </div>
+                    <div class="menu-overlay-lang">
+                        <button class="menu-lang-btn" data-lang="zh-CN">简体中文</button>
+                        <span class="menu-lang-sep">|</span>
+                        <button class="menu-lang-btn" data-lang="zh-TW">繁體中文</button>
+                        <span class="menu-lang-sep">|</span>
+                        <button class="menu-lang-btn" data-lang="en">English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-geo">
+            <div class="geo-circle geo-c1"></div>
+            <div class="geo-circle geo-c2"></div>
+            <div class="geo-circle geo-c3"></div>
+            <div class="geo-line geo-l1"></div>
+            <div class="geo-line geo-l2"></div>
+            <div class="geo-dot geo-dot-1"></div>
+            <div class="geo-dot geo-dot-2"></div>
+        </div>
+        <div class="container hero-content">
+            <h1 data-i18n="hero_title">连接卓越人才<br>赋能医疗未来</h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">专注医疗与生命科学领域的人力资源合作伙伴</p>
+            <div class="hero-actions">
+                <a href="services.html" class="btn btn-primary" data-i18n="hero_cta">了解我们的服务</a>
+                <a href="contact.html" class="btn btn-outline" data-i18n="hero_contact">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">15+</span>
+                <span class="stat-label" data-i18n="stat_years">年行业经验</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label" data-i18n="stat_placements">成功案例</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">3</span>
+                <span class="stat-label" data-i18n="stat_regions">大服务区域</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label" data-i18n="stat_focus">聚焦医疗行业</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="section about-preview">
+        <div class="container">
+            <div class="two-col">
+                <div class="col-text">
+                    <span class="section-tag" data-i18n="about_tag">关于 IEC</span>
+                    <h2 data-i18n="about_title">您值得信赖的<br>人力资源合作伙伴</h2>
+                    <p data-i18n="about_desc">IEC（聿丰咨询）成立于2023年，致力于为医疗与生命科学领域的企业提供专业的人力资源咨询服务。我们的顾问团队凭借深厚的专业知识与丰富实战经验，助力企业有效应对复杂的人力资源挑战。</p>
+                    <a href="about.html" class="link-arrow" data-i18n="about_more">了解更多</a>
+                </div>
+                <div class="col-visual">
+                    <div class="about-visual-images">
+                        <div class="about-img-main">
+                            <img src="images/about-team.jpg" alt="IEC Team Collaboration" loading="lazy">
+                        </div>
+                        <div class="about-img-accent">
+                            <img src="images/city-taipei.jpg" alt="Taipei" loading="lazy">
+                        </div>
+                        <div class="about-img-badge">
+                            <span class="badge-number">15+</span>
+                            <span class="badge-text" data-i18n="stat_years">年行业经验</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Areas -->
+    <section class="section focus-section dark-section">
+        <div class="container">
+            <span class="section-tag light" data-i18n="focus_tag">专注领域</span>
+            <h2 class="light" data-i18n="focus_title">深耕医疗行业关键职能</h2>
+            <div class="focus-grid">
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <h3>R&D</h3>
+                    <p data-i18n="focus_rd">研发与临床：Discovery、Pre-Clinical、Clinical、CMC、Data & Biostats、RA</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                    </div>
+                    <h3>Commercial</h3>
+                    <p data-i18n="focus_commercial">商业化：Marketing、Sales、GA、MA/MSL</p>
+                </div>
+                <div class="focus-card">
+                    <div class="focus-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                    </div>
+                    <h3>Enabling</h3>
+                    <p data-i18n="focus_enabling">职能支持：HR、Finance、Legal、Supply Chain & Procurement</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Preview -->
+    <section class="section services-preview">
+        <div class="container">
+            <span class="section-tag" data-i18n="services_tag">我们的服务</span>
+            <h2 data-i18n="services_title">全方位人力资源解决方案</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">01</div>
+                    <h3 data-i18n="svc_search">人才招募</h3>
+                    <p data-i18n="svc_search_desc">Executive Search、猎头服务、RPO、大规模招聘、校园招聘</p>
+                    <a href="services.html" class="link-arrow" data-i18n="learn_more">了解更多</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">02</div>
+                    <h3 data-i18n="svc_consulting">人力资源咨询</h3>
+                    <p data-i18n="svc_consulting_desc">组织发展诊断与设计、薪酬体系搭建、人才盘点与发展</p>
+                    <a href="services.html" class="link-arrow" data-i18n="learn_more">了解更多</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">03</div>
+                    <h3 data-i18n="svc_startup">初创企业伙伴</h3>
+                    <p data-i18n="svc_startup_desc">本地团队搭建、人员本土化、HR外包服务</p>
+                    <a href="services.html" class="link-arrow" data-i18n="learn_more">了解更多</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">04</div>
+                    <h3 data-i18n="svc_intelligence">商业智能</h3>
+                    <p data-i18n="svc_intelligence_desc">市场调研、关键岗位人才地图、薪酬调研</p>
+                    <a href="services.html" class="link-arrow" data-i18n="learn_more">了解更多</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients -->
+    <section class="section clients-section">
+        <div class="container">
+            <span class="section-tag" data-i18n="clients_tag">合作客户</span>
+            <h2 data-i18n="clients_title">值得信赖的合作伙伴</h2>
+            <div class="clients-grid">
+                <div class="client-logo-item">
+                    <img src="images/client-hansoh.png" alt="Hansoh Pharma" class="client-logo-img" loading="lazy">
+                </div>
+                <div class="client-logo-item">
+                    <span class="client-name">Intuitive Surgical</span>
+                </div>
+                <div class="client-logo-item">
+                    <span class="client-name">BeiGene</span>
+                </div>
+                <div class="client-logo-item">
+                    <span class="client-name">Thermo Fisher</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <div class="cta-circle cta-circle-1"></div>
+            <div class="cta-circle cta-circle-2"></div>
+        </div>
+        <div class="container cta-content">
+            <span class="section-tag light" data-i18n="cta_tag">联系</span>
+            <h2 class="light" data-i18n="cta_title">探讨您的人才需求</h2>
+            <p class="cta-desc" data-i18n="cta_desc">让我们的顾问团队了解您的组织需求，为您提供最佳解决方案。</p>
+            <a href="contact.html" class="btn btn-accent" data-i18n="cta_button">联系我们</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo-icon.png" alt="IEC" height="32">
+                        <span>IEC</span>
+                    </div>
+                    <p data-i18n="footer_desc">专注医疗与生命科学领域的人力资源咨询服务</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_quick">快速链接</h4>
+                    <a href="about.html" data-i18n="nav_about">关于我们</a>
+                    <a href="services.html" data-i18n="nav_services">服务</a>
+                    <a href="team.html" data-i18n="nav_team">团队</a>
+                    <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_services">服务领域</h4>
+                    <a href="services.html" data-i18n="svc_search">人才招募</a>
+                    <a href="services.html" data-i18n="svc_consulting">人力资源咨询</a>
+                    <a href="services.html" data-i18n="svc_startup">初创企业伙伴</a>
+                    <a href="services.html" data-i18n="svc_intelligence">商业智能</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer_contact">联系方式</h4>
+                    <p>Shanghai, China</p>
+                    <p>info@ieconsulting.com.cn</p>
+                    <p>ieconsulting.com.cn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IEC Inventor Partner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

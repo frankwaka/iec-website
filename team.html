@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEC | 团队 - 专业的医疗人力资源顾问</title>
+    <meta name="description" content="IEC专业顾问团队，拥有15-20年医疗与生命科学行业经验，提供一流的人力资源咨询与招聘服务。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JSON-LD Schema for Organization with Employees -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "IEC - Inventor Partner",
+        "url": "https://ieconsulting.com.cn",
+        "logo": "https://ieconsulting.com.cn/logo.svg",
+        "description": "Professional healthcare executive search and HR consulting firm",
+        "sameAs": [
+            "https://www.linkedin.com/company/iec-inventor-partner"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "email": "info@ieconsulting.com.cn",
+            "availableLanguage": ["zh-CN", "zh-TW", "en"]
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shanghai",
+            "addressCountry": "CN"
+        },
+        "employee": [
+            {
+                "@type": "Person",
+                "name": "Janet Lo",
+                "jobTitle": "Founder / Life Sciences Practice Lead",
+                "description": "15+ years of expertise in biopharma headhunting and HR"
+            },
+            {
+                "@type": "Person",
+                "name": "Cathy Chen",
+                "jobTitle": "Senior Consultant / HR Consulting Lead",
+                "description": "20+ years of HR leadership across Telecom, Pharma, and Medical Device sectors"
+            },
+            {
+                "@type": "Person",
+                "name": "Vic",
+                "jobTitle": "Senior Consultant / Manufacturing",
+                "description": "15+ years of sales and marketing management in manufacturing"
+            },
+            {
+                "@type": "Person",
+                "name": "Fay",
+                "jobTitle": "Consultant / Clinical & HR Advisory",
+                "description": "Specializes in clinical talent acquisition and HR consulting"
+            },
+            {
+                "@type": "Person",
+                "name": "Kayla",
+                "jobTitle": "Project Management / Operations",
+                "description": "Expert in project communication and execution"
+            }
+        ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-icon.png" alt="IEC" class="logo-icon-img" height="36">
+                <div class="logo-text">
+                    <span class="logo-main">IEC</span>
+                    <span class="logo-sub" data-i18n="logo_company">INVENTOR PARTNER</span>
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" data-i18n="nav_home">首页</a>
+                <a href="about.html" data-i18n="nav_about">关于我们</a>
+                <a href="services.html" data-i18n="nav_services">服务</a>
+                <a href="team.html" class="active" data-i18n="nav_team">团队</a>
+                <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+            </div>
+            <div class="nav-right">
+                <div class="lang-dropdown">
+                    <button class="lang-dropdown-toggle" id="langToggle">
+                        <span class="lang-current">简体中文</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langMenu">
+                        <button class="lang-option active" data-lang="zh-CN">简体中文</button>
+                        <button class="lang-option" data-lang="zh-TW">繁體中文</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full-screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-overlay-bg"></div>
+        <div class="menu-overlay-content">
+            <div class="menu-overlay-header">
+                <a href="index.html" class="menu-overlay-logo">
+                    <img src="images/logo-icon.png" alt="IEC" height="32">
+                    <span>IEC</span>
+                </a>
+                <button class="menu-close" id="menuClose" aria-label="Close">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="menu-overlay-body">
+                <div class="menu-overlay-links">
+                    <a href="index.html" data-i18n="nav_home">首页</a>
+                    <a href="about.html" data-i18n="nav_about">关于我们</a>
+                    <a href="services.html" data-i18n="nav_services">服务</a>
+                    <a href="team.html" class="active" data-i18n="nav_team">团队</a>
+                    <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                    <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+                </div>
+                <div class="menu-overlay-info">
+                    <div class="menu-overlay-contact">
+                        <p>info@ieconsulting.com.cn</p>
+                        <p>Shanghai, China</p>
+                    </div>
+                    <div class="menu-overlay-lang">
+                        <button class="menu-lang-btn" data-lang="zh-CN">简体中文</button>
+                        <span class="menu-lang-sep">|</span>
+                        <button class="menu-lang-btn" data-lang="zh-TW">繁體中文</button>
+                        <span class="menu-lang-sep">|</span>
+                        <button class="menu-lang-btn" data-lang="en">English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 data-i18n="team_page_title">我们的团队</h1>
+            <p data-i18n="team_page_subtitle">经验丰富的顾问团队，为您的业务保驾护航</p>
+        </div>
+    </section>
+
+    <!-- Team Intro Section -->
+    <section class="section">
+        <div class="container">
+            <span class="section-tag" data-i18n="team_tag">核心团队</span>
+            <h2 data-i18n="team_title">专业顾问</h2>
+            <p class="team-intro" data-i18n="team_desc">我们相信我们的顾问训练有素，能够提供各种技能和专业知识，支持您的业务更上一层楼。</p>
+
+            <!-- Team Grid -->
+            <div class="team-grid">
+                <!-- Team Card 1 - Janet -->
+                <article class="team-card">
+                    <div class="team-avatar"><img src="images/team-janet.jpg" alt="Janet Lo" loading="lazy"></div>
+                    <h3>Janet Lo</h3>
+                    <span class="team-role" data-i18n="janet_role">创始人 / 生命科学招聘负责人</span>
+                    <p data-i18n="janet_desc">15年以上生物医药猎头与人力资源经验。曾担任全球CRO及医疗器械公司亚太区人才招聘负责人，深耕生命科学人才市场。</p>
+                </article>
+
+                <!-- Team Card 2 - Cathy -->
+                <article class="team-card">
+                    <div class="team-avatar"><img src="images/team-cathy.jpg" alt="Cathy Chen" loading="lazy"></div>
+                    <h3>Cathy Chen</h3>
+                    <span class="team-role" data-i18n="cathy_role">高级顾问 / HR咨询负责人</span>
+                    <p data-i18n="cathy_desc">20年以上横跨电信、制药及医疗器械行业的HR管理经验，包括欧洲总部的区域管理经验。擅长组织设计、薪酬架构及人才发展。</p>
+                </article>
+
+                <!-- Team Card 3 - Vic -->
+                <article class="team-card">
+                    <div class="team-avatar"><img src="images/team-vic.jpg" alt="Vic" loading="lazy"></div>
+                    <h3>Vic</h3>
+                    <span class="team-role" data-i18n="vic_role">高级顾问 / 制造业招聘</span>
+                    <p data-i18n="vic_desc">15年以上制造业销售与市场管理经验，深谙半导体市场动态。专注于销售、市场及财务支持职能的人才招聘。</p>
+                </article>
+
+                <!-- Team Card 4 - Fay -->
+                <article class="team-card">
+                    <div class="team-avatar"><img src="images/team-fay.jpg" alt="Fay" loading="lazy"></div>
+                    <h3>Fay</h3>
+                    <span class="team-role" data-i18n="fay_role">顾问 / 临床招聘与HR咨询</span>
+                    <p data-i18n="fay_desc">专注临床相关人才招聘与人力资源咨询，融合企业HR与猎头经验，提供务实的业务导向解决方案。</p>
+                </article>
+
+                <!-- Team Card 5 - Kayla -->
+                <article class="team-card">
+                    <div class="team-avatar"><img src="images/team-kayla.jpg" alt="Kayla" loading="lazy"></div>
+                    <h3>Kayla</h3>
+                    <span class="team-role" data-i18n="kayla_role">项目管理 / 运营支持</span>
+                    <p data-i18n="kayla_desc">擅长项目沟通与执行，具有HR服务及品牌合作背景，确保项目目标清晰、高效交付。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <div class="cta-circle cta-circle-1"></div>
+            <div class="cta-circle cta-circle-2"></div>
+        </div>
+        <div class="container cta-content">
+            <span class="section-tag light" data-i18n="cta_tag">联系</span>
+            <h2 class="light" data-i18n="cta_title">探讨您的人才需求</h2>
+            <p class="cta-desc" data-i18n="cta_desc">让我们的顾问团队了解您的组织需求，为您提供最佳解决方案。</p>
+            <a href="contact.html" class="btn btn-accent" data-i18n="cta_button">联系我们</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo-icon.png" alt="IEC" height="32">
+                        <span>IEC</span>
+                    </div>
+                    <p data-i18n="footer_desc">专注医疗与生命科学领域的人力资源咨询服务</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_quick">快速链接</h4>
+                    <a href="about.html" data-i18n="nav_about">关于我们</a>
+                    <a href="services.html" data-i18n="nav_services">服务</a>
+                    <a href="team.html" data-i18n="nav_team">团队</a>
+                    <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_services">服务领域</h4>
+                    <a href="services.html" data-i18n="svc_search">人才招募</a>
+                    <a href="services.html" data-i18n="svc_consulting">人力资源咨询</a>
+                    <a href="services.html" data-i18n="svc_startup">初创企业伙伴</a>
+                    <a href="services.html" data-i18n="svc_intelligence">商业智能</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer_contact">联系方式</h4>
+                    <p>Shanghai, China</p>
+                    <p>info@ieconsulting.com.cn</p>
+                    <p>ieconsulting.com.cn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IEC Inventor Partner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

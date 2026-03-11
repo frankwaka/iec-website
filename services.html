@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEC | Services - Healthcare Executive Search & HR Consulting</title>
+    <meta name="description" content="IEC professional HR services: Talent Acquisition, HR Consulting, Startup Partnering, Business Intelligence, Talent Review, and Compensation services for healthcare and life sciences organizations.">
+    <meta name="keywords" content="healthcare recruitment, HR consulting, executive search, talent acquisition, life sciences">
+
+    <!-- Schema.org Service JSON-LD -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "IEC - Inventor Partner",
+        "description": "Professional HR consulting and recruitment services for healthcare and life sciences",
+        "url": "https://ieconsulting.com.cn",
+        "telephone": "+86-21-XXXX-XXXX",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Shanghai",
+            "addressCountry": "CN"
+        },
+        "areaServed": ["CN", "TW", "APAC"],
+        "hasOfferingDetails": [
+            {
+                "@type": "Offer",
+                "name": "Talent Acquisition",
+                "description": "Executive Search, Headhunting, RPO, Mass Recruitment, Campus Recruiting"
+            },
+            {
+                "@type": "Offer",
+                "name": "HR Consulting",
+                "description": "Organization Development, Compensation Design, Talent Review & Development"
+            },
+            {
+                "@type": "Offer",
+                "name": "Startup Partnering",
+                "description": "Local Team Building, Talent Localization, HR Outsourcing"
+            },
+            {
+                "@type": "Offer",
+                "name": "Business Intelligence",
+                "description": "Market Survey, Critical Position Mapping, Compensation Benchmarking"
+            },
+            {
+                "@type": "Offer",
+                "name": "Talent Review & Development",
+                "description": "Talent Review, Key Talent Development, Succession Planning"
+            },
+            {
+                "@type": "Offer",
+                "name": "Compensation & Benefits",
+                "description": "Job Evaluation, Compensation Architecture, Benefits Optimization"
+            }
+        ]
+    }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="images/logo-icon.png" alt="IEC" class="logo-icon-img" height="36">
+                <div class="logo-text">
+                    <span class="logo-main">IEC</span>
+                    <span class="logo-sub" data-i18n="logo_company">INVENTOR PARTNER</span>
+                </div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html" data-i18n="nav_home">首页</a>
+                <a href="about.html" data-i18n="nav_about">关于我们</a>
+                <a href="services.html" class="active" data-i18n="nav_services">服务</a>
+                <a href="team.html" data-i18n="nav_team">团队</a>
+                <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+            </div>
+            <div class="nav-right">
+                <div class="lang-dropdown">
+                    <button class="lang-dropdown-toggle" id="langToggle">
+                        <span class="lang-current">简体中文</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown-menu" id="langMenu">
+                        <button class="lang-option active" data-lang="zh-CN">简体中文</button>
+                        <button class="lang-option" data-lang="zh-TW">繁體中文</button>
+                        <button class="lang-option" data-lang="en">English</button>
+                    </div>
+                </div>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Full-screen Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-overlay-bg"></div>
+        <div class="menu-overlay-content">
+            <div class="menu-overlay-header">
+                <a href="index.html" class="menu-overlay-logo">
+                    <img src="images/logo-icon.png" alt="IEC" height="32">
+                    <span>IEC</span>
+                </a>
+                <button class="menu-close" id="menuClose" aria-label="Close">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="menu-overlay-body">
+                <div class="menu-overlay-links">
+                    <a href="index.html" data-i18n="nav_home">首页</a>
+                    <a href="about.html" data-i18n="nav_about">关于我们</a>
+                    <a href="services.html" class="active" data-i18n="nav_services">服务</a>
+                    <a href="team.html" data-i18n="nav_team">团队</a>
+                    <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                    <a href="contact.html" data-i18n="nav_contact">联系我们</a>
+                </div>
+                <div class="menu-overlay-info">
+                    <div class="menu-overlay-contact">
+                        <p>info@ieconsulting.com.cn</p>
+                        <p>Shanghai, China</p>
+                    </div>
+                    <div class="menu-overlay-lang">
+                        <button class="menu-lang-btn" data-lang="zh-CN">简体中文</button>
+                        <span class="menu-lang-sep">|</span>
+                        <button class="menu-lang-btn" data-lang="zh-TW">繁體中文</button>
+                        <span class="menu-lang-sep">|</span>
+                        <button class="menu-lang-btn" data-lang="en">English</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 data-i18n="services_page_title">我们的服务</h1>
+            <p data-i18n="services_page_subtitle">为医疗与生命科学企业提供全方位人力资源解决方案</p>
+        </div>
+    </section>
+
+    <!-- Services Detail Section -->
+    <section class="section service-detail">
+        <div class="container">
+            <!-- Service 1: Talent Acquisition -->
+            <div class="service-detail-card">
+                <div class="svc-icon-wrap">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 data-i18n="svc1_title">人才招募</h3>
+                    <p data-i18n="svc1_desc">我们提供全方位的人才招聘服务，从高管搜索到大规模招聘，满足不同层级的用人需求。我们的招聘流程科学严谨，从职位分析到入职跟进，确保为客户找到最合适的人选。</p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="svc1_tag1">Executive Search</span>
+                        <span class="service-tag" data-i18n="svc1_tag2">猎头服务</span>
+                        <span class="service-tag" data-i18n="svc1_tag3">RPO</span>
+                        <span class="service-tag" data-i18n="svc1_tag4">大规模招聘</span>
+                        <span class="service-tag" data-i18n="svc1_tag5">校园招聘</span>
+                        <span class="service-tag" data-i18n="svc1_tag6">实习生项目</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 2: HR Consulting -->
+            <div class="service-detail-card">
+                <div class="svc-icon-wrap">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 data-i18n="svc2_title">人力资源咨询</h3>
+                    <p data-i18n="svc2_desc">从组织诊断到方案实施，我们的咨询团队帮助企业优化组织架构、提升管理效能。通过系统化的分析与工作坊，制定切实可行的改进方案。</p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="svc2_tag1">组织诊断与设计</span>
+                        <span class="service-tag" data-i18n="svc2_tag2">薪酬体系搭建</span>
+                        <span class="service-tag" data-i18n="svc2_tag3">岗位价值评估</span>
+                        <span class="service-tag" data-i18n="svc2_tag4">人才盘点与发展</span>
+                        <span class="service-tag" data-i18n="svc2_tag5">高管教练</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 3: Startup Partnering -->
+            <div class="service-detail-card">
+                <div class="svc-icon-wrap">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 data-i18n="svc3_title">初创企业伙伴</h3>
+                    <p data-i18n="svc3_desc">帮助海外医疗企业落地中国市场，提供一站式的本地化人力资源支持，从搭建本地团队到日常HR运营管理。</p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="svc3_tag1">本地团队搭建</span>
+                        <span class="service-tag" data-i18n="svc3_tag2">人员本土化</span>
+                        <span class="service-tag" data-i18n="svc3_tag3">HR外包服务</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 4: Business Intelligence -->
+            <div class="service-detail-card">
+                <div class="svc-icon-wrap">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 12h18M3 6h18M3 18h18"/><rect x="3" y="3" width="18" height="18" rx="2"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 data-i18n="svc4_title">商业智能</h3>
+                    <p data-i18n="svc4_desc">基于深厚的行业积累，为客户提供全面的市场信息与人才数据支持，助力战略决策。</p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="svc4_tag1">市场调研</span>
+                        <span class="service-tag" data-i18n="svc4_tag2">关键岗位人才地图</span>
+                        <span class="service-tag" data-i18n="svc4_tag3">薪酬调研</span>
+                        <span class="service-tag" data-i18n="svc4_tag4">竞争对手分析</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 5: Talent Review & Development -->
+            <div class="service-detail-card">
+                <div class="svc-icon-wrap">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 data-i18n="svc5_title">人才盘点与发展</h3>
+                    <p data-i18n="svc5_desc">通过科学的评估工具与方法论，帮助企业识别关键人才，制定个性化发展计划。</p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="svc5_tag1">人才盘点</span>
+                        <span class="service-tag" data-i18n="svc5_tag2">关键人才发展计划</span>
+                        <span class="service-tag" data-i18n="svc5_tag3">继任规划</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service 6: Compensation & Benefits -->
+            <div class="service-detail-card">
+                <div class="svc-icon-wrap">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/><path d="M12 6v12M9 9h6a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 data-i18n="svc6_title">薪酬与福利项目</h3>
+                    <p data-i18n="svc6_desc">帮助企业建立科学合理的薪酬体系，提升员工满意度与组织竞争力。</p>
+                    <div class="service-tags">
+                        <span class="service-tag" data-i18n="svc6_tag1">岗位价值评估</span>
+                        <span class="service-tag" data-i18n="svc6_tag2">薪酬架构设计</span>
+                        <span class="service-tag" data-i18n="svc6_tag3">福利体系优化</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recruiting Process Section -->
+    <section class="section">
+        <div class="container">
+            <span class="section-tag" data-i18n="recruiting_tag">招聘流程</span>
+            <h2 data-i18n="recruiting_title">科学严谨的招聘方法论</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-num">1</div>
+                    <h4 data-i18n="step1_title">职位分析</h4>
+                    <p data-i18n="step1_desc">深入了解客户需求，明确岗位定义与人才画像</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">2</div>
+                    <h4 data-i18n="step2_title">人才搜索</h4>
+                    <p data-i18n="step2_desc">多渠道精准搜索，主动猎聘与数据库筛选</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">3</div>
+                    <h4 data-i18n="step3_title">筛选评估</h4>
+                    <p data-i18n="step3_desc">简历审核、资质确认、顾问面试、候选人推荐</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">4</div>
+                    <h4 data-i18n="step4_title">客户面试</h4>
+                    <p data-i18n="step4_desc">面试辅导、协调安排、及时反馈</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">5</div>
+                    <h4 data-i18n="step5_title">Offer 管理</h4>
+                    <p data-i18n="step5_desc">期望管理、薪酬谈判、Offer 确认</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-num">6</div>
+                    <h4 data-i18n="step6_title">入职跟进</h4>
+                    <p data-i18n="step6_desc">入职协助、3-6个月持续跟进确保平稳过渡</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Cases Section — Hero Banner -->
+    <section class="cases-hero">
+        <div class="cases-hero-bg">
+            <img src="images/city-china.jpg" alt="" loading="lazy">
+            <div class="cases-hero-overlay"></div>
+        </div>
+        <div class="container cases-hero-content">
+            <span class="section-tag light" data-i18n="cases_tag">成功案例</span>
+            <h2 class="light" data-i18n="cases_title">覆盖医疗行业全职能</h2>
+            <p class="cases-hero-desc" data-i18n="cases_subtitle">从研发到商业化、从运营到咨询，我们已成功交付500+关键岗位，涵盖医疗与生命科学领域的全部核心职能。</p>
+            <div class="cases-stats-row">
+                <div class="cases-stat">
+                    <span class="cases-stat-num">500+</span>
+                    <span class="cases-stat-label" data-i18n="cases_stat_placed">成功交付职位</span>
+                </div>
+                <div class="cases-stat">
+                    <span class="cases-stat-num">5</span>
+                    <span class="cases-stat-label" data-i18n="cases_stat_areas">大职能领域</span>
+                </div>
+                <div class="cases-stat">
+                    <span class="cases-stat-num">50+</span>
+                    <span class="cases-stat-label" data-i18n="cases_stat_titles">细分岗位类型</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Cases — Detailed Breakdown -->
+    <section class="section cases-detail">
+        <div class="container">
+            <!-- Case Category 1: R&D -->
+            <div class="case-category">
+                <div class="case-cat-header">
+                    <div class="case-cat-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                    </div>
+                    <div>
+                        <h3>R&D</h3>
+                        <span class="case-cat-sub" data-i18n="case_rd_sub">研发与临床</span>
+                    </div>
+                </div>
+                <div class="case-positions">
+                    <span class="case-pos">CMO</span>
+                    <span class="case-pos">Clinical Head</span>
+                    <span class="case-pos">Global Study Lead</span>
+                    <span class="case-pos">Portfolio Manager</span>
+                    <span class="case-pos">CMC Head</span>
+                    <span class="case-pos">Medical Director</span>
+                    <span class="case-pos">Physician Head</span>
+                    <span class="case-pos">Mechanical Engineer</span>
+                    <span class="case-pos">System Engineer Lead</span>
+                    <span class="case-pos">Project Manager</span>
+                </div>
+            </div>
+
+            <!-- Case Category 2: Commercial -->
+            <div class="case-category">
+                <div class="case-cat-header">
+                    <div class="case-cat-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><path d="M9 14l2 2 4-4"/></svg>
+                    </div>
+                    <div>
+                        <h3>Commercial</h3>
+                        <span class="case-cat-sub" data-i18n="case_commercial_sub">商业化与市场</span>
+                    </div>
+                </div>
+                <div class="case-positions">
+                    <span class="case-pos">CCO</span>
+                    <span class="case-pos">Marketing Director</span>
+                    <span class="case-pos">Marketing Manager</span>
+                    <span class="case-pos">National Sales Director</span>
+                    <span class="case-pos">Sr. Product Manager</span>
+                    <span class="case-pos">Commercial Excellent</span>
+                    <span class="case-pos">BD Manager</span>
+                    <span class="case-pos">Business Intelligence</span>
+                    <span class="case-pos">GAMA</span>
+                </div>
+            </div>
+
+            <!-- Case Category 3: Operations -->
+            <div class="case-category">
+                <div class="case-cat-header">
+                    <div class="case-cat-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                    </div>
+                    <div>
+                        <h3>Operations</h3>
+                        <span class="case-cat-sub" data-i18n="case_ops_sub">运营与质量</span>
+                    </div>
+                </div>
+                <div class="case-positions">
+                    <span class="case-pos">COO</span>
+                    <span class="case-pos">QRA Head</span>
+                    <span class="case-pos">Sr. QA Manager</span>
+                    <span class="case-pos">RA Manager</span>
+                    <span class="case-pos">EHS Manager</span>
+                    <span class="case-pos">Supply Chain Manager</span>
+                    <span class="case-pos">Business Operations Manager</span>
+                    <span class="case-pos">Production Head</span>
+                    <span class="case-pos">Procurement Manager</span>
+                </div>
+            </div>
+
+            <!-- Case Category 4: Enabling -->
+            <div class="case-category">
+                <div class="case-cat-header">
+                    <div class="case-cat-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div>
+                        <h3>Enabling</h3>
+                        <span class="case-cat-sub" data-i18n="case_enabling_sub">职能支持</span>
+                    </div>
+                </div>
+                <div class="case-positions">
+                    <span class="case-pos">CFO</span>
+                    <span class="case-pos">Finance BP</span>
+                    <span class="case-pos">Accounting Manager</span>
+                    <span class="case-pos">ITBP</span>
+                    <span class="case-pos">CHO</span>
+                    <span class="case-pos">HRBP AD</span>
+                    <span class="case-pos">OD Manager</span>
+                    <span class="case-pos">C&B Manager</span>
+                    <span class="case-pos">Legal Counsel</span>
+                </div>
+            </div>
+
+            <!-- Case Category 5: Consulting -->
+            <div class="case-category">
+                <div class="case-cat-header">
+                    <div class="case-cat-icon">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <div>
+                        <h3>Consulting</h3>
+                        <span class="case-cat-sub" data-i18n="case_consulting_sub">咨询服务</span>
+                    </div>
+                </div>
+                <div class="case-positions">
+                    <span class="case-pos">Organization Review</span>
+                    <span class="case-pos">Talent Mapping & Development</span>
+                    <span class="case-pos">Onsite HR Support</span>
+                    <span class="case-pos">Job Grading Analysis</span>
+                    <span class="case-pos">Executive Coach</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-bg">
+            <div class="cta-circle cta-circle-1"></div>
+            <div class="cta-circle cta-circle-2"></div>
+        </div>
+        <div class="container cta-content">
+            <span class="section-tag light" data-i18n="cta_tag">联系</span>
+            <h2 class="light" data-i18n="cta_title">探讨您的人才需求</h2>
+            <p class="cta-desc" data-i18n="cta_desc">让我们的顾问团队了解您的组织需求，为您提供最佳解决方案。</p>
+            <a href="contact.html" class="btn btn-accent" data-i18n="cta_button">联系我们</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="images/logo-icon.png" alt="IEC" height="32">
+                        <span>IEC</span>
+                    </div>
+                    <p data-i18n="footer_desc">专注医疗与生命科学领域的人力资源咨询服务</p>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_quick">快速链接</h4>
+                    <a href="about.html" data-i18n="nav_about">关于我们</a>
+                    <a href="services.html" data-i18n="nav_services">服务</a>
+                    <a href="team.html" data-i18n="nav_team">团队</a>
+                    <a href="insights.html" data-i18n="nav_insights">行业洞察</a>
+                </div>
+                <div class="footer-links">
+                    <h4 data-i18n="footer_services">服务领域</h4>
+                    <a href="services.html" data-i18n="svc_search">人才招募</a>
+                    <a href="services.html" data-i18n="svc_consulting">人力资源咨询</a>
+                    <a href="services.html" data-i18n="svc_startup">初创企业伙伴</a>
+                    <a href="services.html" data-i18n="svc_intelligence">商业智能</a>
+                </div>
+                <div class="footer-contact">
+                    <h4 data-i18n="footer_contact">联系方式</h4>
+                    <p>Shanghai, China</p>
+                    <p>info@ieconsulting.com.cn</p>
+                    <p>ieconsulting.com.cn</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 IEC Inventor Partner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="i18n.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
