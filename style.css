@@ -101,7 +101,7 @@ button{font-family:inherit;cursor:pointer}
     to{opacity:0;pointer-events:none;visibility:hidden}
 }
 
-/* Main centered diamond — Neon glow effect like reference */
+/* Main centered diamond — Clean glow effect */
 .logo-intro-diamond{
     position:relative;z-index:10;
     width:180px;height:180px;
@@ -115,36 +115,69 @@ button{font-family:inherit;cursor:pointer}
     width:auto;height:auto;
     object-fit:contain;
     image-rendering:-webkit-optimize-contrast;
+    position:relative;
+    z-index:2;
 }
-/* Clean glow effect using pseudo-element instead of drop-shadow */
+/* Inner white glow - close to diamond */
 .logo-intro-diamond::before{
     content:'';
     position:absolute;
-    inset:-40px;
+    width:140px;height:140px;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
     background:radial-gradient(circle at center, 
-        rgba(255,255,255,.4) 0%,
-        rgba(180,255,200,.25) 20%,
-        rgba(61,204,110,.15) 40%,
-        rgba(61,204,110,.05) 60%,
+        rgba(255,255,255,.5) 0%,
+        rgba(255,255,255,.2) 40%,
         transparent 70%
     );
     border-radius:50%;
-    z-index:-1;
+    z-index:1;
     pointer-events:none;
+    filter:blur(8px);
+}
+/* Outer green glow - soft ambient */
+.logo-intro-diamond::after{
+    content:'';
+    position:absolute;
+    width:260px;height:260px;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+    background:radial-gradient(circle at center, 
+        rgba(61,204,110,.25) 0%,
+        rgba(61,204,110,.1) 40%,
+        transparent 70%
+    );
+    border-radius:50%;
+    z-index:0;
+    pointer-events:none;
+    filter:blur(20px);
 }
 
-/* Pulsing glow animation - using pseudo-element for clean effect */
+/* Pulsing glow animation */
 .logo-intro-diamond.animate::before{
-    animation:neonPulse 2s ease-in-out infinite;
+    animation:innerPulse 2s ease-in-out infinite;
 }
-@keyframes neonPulse{
+.logo-intro-diamond.animate::after{
+    animation:outerPulse 2s ease-in-out infinite;
+}
+@keyframes innerPulse{
     0%,100%{
         opacity:1;
-        transform:scale(1);
+        transform:translate(-50%,-50%) scale(1);
     }
     50%{
-        opacity:1.3;
-        transform:scale(1.15);
+        opacity:.8;
+        transform:translate(-50%,-50%) scale(1.1);
+    }
+}
+@keyframes outerPulse{
+    0%,100%{
+        opacity:1;
+        transform:translate(-50%,-50%) scale(1);
+    }
+    50%{
+        opacity:.7;
+        transform:translate(-50%,-50%) scale(1.15);
     }
 }
 
