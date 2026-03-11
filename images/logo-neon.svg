@@ -1,27 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
   <defs>
-    <!-- Neon glow filter -->
-    <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur1"/>
+    <!-- Multi-layer neon glow filter - clean white glow like reference -->
+    <filter id="neonGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <!-- Outer soft glow -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur1"/>
+      <!-- Middle glow -->
       <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur2"/>
-      <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur3"/>
+      <!-- Inner bright glow -->
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur3"/>
+      <!-- Combine all layers -->
       <feMerge>
-        <feMergeNode in="blur3"/>
-        <feMergeNode in="blur2"/>
         <feMergeNode in="blur1"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur3"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
   
-  <g fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" filter="url(#neonGlow)">
-    <!-- Left arrow (pointing left-up) -->
-    <path d="M 30 130 L 30 100 L 60 70 L 90 70 L 60 100 L 60 130 Z"/>
-    
-    <!-- Right arrow (pointing right-up) -->
-    <path d="M 170 130 L 170 100 L 140 70 L 110 70 L 140 100 L 140 130 Z"/>
-    
-    <!-- Center diamond/arrow pointing up -->
-    <path d="M 100 30 L 130 60 L 130 90 L 100 120 L 70 90 L 70 60 Z"/>
+  <!-- IEC Logo - two arrows pointing up, meeting at center -->
+  <g filter="url(#neonGlow)" stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Left arrow pointing up-left -->
+    <path d="M 30,150 L 30,80 L 70,40 L 100,70 L 70,100 L 70,150 Z"/>
+    <!-- Right arrow pointing up-right (mirrored) -->
+    <path d="M 170,150 L 170,80 L 130,40 L 100,70 L 130,100 L 130,150 Z"/>
   </g>
 </svg>

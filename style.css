@@ -64,7 +64,13 @@ button{font-family:inherit;cursor:pointer}
     height:52px;width:auto;display:block;object-fit:contain;
     flex-shrink:0;
     transition:all var(--speed) var(--ease);
-    filter:drop-shadow(0 2px 8px rgba(0,0,0,.1));
+}
+/* Neon logo glow effect for navbar */
+.logo-icon-img.logo-neon{
+    filter:drop-shadow(0 0 3px rgba(255,255,255,.6)) drop-shadow(0 0 6px rgba(255,255,255,.3));
+}
+.navbar.scrolled .logo-icon-img.logo-neon{
+    filter:drop-shadow(0 0 2px rgba(61,204,110,.4)) drop-shadow(0 0 4px rgba(61,204,110,.2));
 }
 .logo-text{display:flex;flex-direction:column;line-height:1;gap:5px}
 .logo-main{
