@@ -9,7 +9,7 @@
         var glow1   = document.getElementById('logoGlow1');
         var glow2   = document.getElementById('logoGlow2');
         var glow3   = document.getElementById('logoGlow3');
-        var logoText = document.getElementById('logoText');
+        // logoText removed - full logo now includes text
         var cleaned  = false;
 
         // Failsafe: always remove overlay after 5s no matter what
@@ -50,21 +50,12 @@
             } catch(e) {}
         }, 200);
 
-        // Phase 2: Brand text appears (800ms)
-        setTimeout(function() {
-            try { if (logoText) logoText.classList.add('animate'); } catch(e) {}
-        }, 800);
-
-        // Phase 3: Elegant fade out (2000ms)
+        // Phase 2: Elegant fade out (2200ms - longer hold for full logo)
         setTimeout(function() {
             try {
-                diamond.style.transition = 'opacity 0.5s ease-out, transform 0.8s ease-out';
+                diamond.style.transition = 'opacity 0.6s ease-out, transform 0.8s ease-out';
                 diamond.style.opacity = '0';
-                diamond.style.transform = 'scale(0.9)';
-                if (logoText) {
-                    logoText.style.transition = 'opacity 0.4s ease-out';
-                    logoText.style.opacity = '0';
-                }
+                diamond.style.transform = 'scale(0.95)';
             } catch(e) {}
 
             // Phase 4: Fade overlay & reveal navbar (600ms after phase 3)
