@@ -58,34 +58,17 @@ button{font-family:inherit;cursor:pointer}
 }
 .nav-container{max-width:1400px;margin:0 auto;padding:0 60px;display:flex;align-items:center;justify-content:space-between}
 
-/* logo — Heidrick grand style */
-.logo{display:flex;align-items:center;gap:18px;overflow:visible;flex-shrink:0}
+/* logo — Full HD logo style */
+.logo{display:flex;align-items:center;overflow:visible;flex-shrink:0}
 .logo-icon-img{
-    height:52px;width:auto;display:block;object-fit:contain;
+    height:48px;width:auto;display:block;object-fit:contain;
     flex-shrink:0;
     transition:all var(--speed) var(--ease);
+    /* Crisp rendering for HD logo */
+    image-rendering:-webkit-optimize-contrast;
 }
-
-.logo-text{display:flex;flex-direction:column;line-height:1;gap:5px}
-.logo-main{
-    font-size:36px;font-weight:700;color:#fff;
-    letter-spacing:12px;
-    font-family:'Georgia','Times New Roman',serif;
-    text-transform:uppercase;
-    transition:all var(--speed) var(--ease);
-    text-shadow:0 2px 10px rgba(0,0,0,.2);
-}
-.logo-sub{
-    font-size:11px;letter-spacing:5px;text-transform:uppercase;
-    color:rgba(255,255,255,.7);font-weight:500;
-    font-family:'Georgia','Times New Roman',serif;
-    transition:all var(--speed) var(--ease);
-    white-space:nowrap;
-}
-/* Scrolled state — dark text */
-.navbar.scrolled .logo-main{font-size:24px;letter-spacing:7px;color:var(--ink);text-shadow:none}
-.navbar.scrolled .logo-sub{font-size:9px;letter-spacing:3px;color:var(--ink-light)}
-.navbar.scrolled .logo-icon-img{height:38px;filter:none}
+/* Scrolled state — smaller logo */
+.navbar.scrolled .logo-icon-img{height:36px}
 
 /* --- Logo entrance animation — Neon glow style --- */
 .logo-intro-overlay{
@@ -424,10 +407,9 @@ button{font-family:inherit;cursor:pointer}
     padding:28px 0;
 }
 .menu-overlay-logo{
-    display:flex;align-items:center;gap:10px;
+    display:flex;align-items:center;
 }
-.menu-overlay-logo img{height:32px;width:auto}
-.menu-overlay-logo span{font-size:24px;font-weight:800;color:var(--white);letter-spacing:5px}
+.menu-overlay-logo img{height:36px;width:auto;image-rendering:-webkit-optimize-contrast}
 .menu-close{
     background:none;border:none;color:rgba(255,255,255,.6);
     cursor:pointer;padding:8px;
@@ -860,8 +842,8 @@ h2.light{color:var(--white)}
 /* ---------- FOOTER ---------- */
 .footer{background:#0F1923;padding:72px 0 36px}
 .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:56px}
-.footer-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.footer-logo span{font-size:22px;font-weight:800;color:var(--white);letter-spacing:3px}
+.footer-logo{display:flex;align-items:center;margin-bottom:16px}
+.footer-logo img{height:36px;width:auto;image-rendering:-webkit-optimize-contrast}
 .footer-brand p{color:var(--text-muted);font-size:13px;line-height:1.7}
 .footer-links h4,.footer-contact h4{
     color:var(--white);font-size:12px;font-weight:700;
