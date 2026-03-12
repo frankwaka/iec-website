@@ -84,7 +84,7 @@ button{font-family:inherit;cursor:pointer}
     to{opacity:0;pointer-events:none;visibility:hidden}
 }
 
-/* Main centered logo icon — Bright Neon glow effect */
+/* Main centered logo icon — Neon edge glow only */
 .logo-intro-diamond{
     position:relative;z-index:10;
     width:180px;height:180px;
@@ -97,101 +97,39 @@ button{font-family:inherit;cursor:pointer}
     max-width:100%;max-height:100%;
     width:auto;height:auto;
     object-fit:contain;
-    position:relative;
-    z-index:3;
     image-rendering:-webkit-optimize-contrast;
-    /* Bright neon glow - multiple layers for intensity */
+    /* Neon glow only on logo edges - no background glow */
     filter:
-        drop-shadow(0 0 3px rgba(255,255,255,1))
-        drop-shadow(0 0 8px rgba(255,255,255,.8))
-        drop-shadow(0 0 15px rgba(255,255,255,.5))
-        drop-shadow(0 0 25px rgba(61,204,110,.6))
-        drop-shadow(0 0 45px rgba(61,204,110,.4))
-        drop-shadow(0 0 80px rgba(61,204,110,.25));
-}
-/* Inner white glow */
-.logo-intro-diamond::before{
-    content:'';
-    position:absolute;
-    width:160px;height:160px;
-    top:50%;left:50%;
-    transform:translate(-50%,-50%);
-    background:radial-gradient(circle at center, 
-        rgba(255,255,255,.3) 0%,
-        rgba(255,255,255,.1) 40%,
-        transparent 70%
-    );
-    border-radius:50%;
-    z-index:1;
-    pointer-events:none;
-    filter:blur(15px);
-}
-/* Outer green glow */
-.logo-intro-diamond::after{
-    content:'';
-    position:absolute;
-    width:280px;height:280px;
-    top:50%;left:50%;
-    transform:translate(-50%,-50%);
-    background:radial-gradient(circle at center, 
-        rgba(61,204,110,.2) 0%,
-        rgba(61,204,110,.08) 40%,
-        transparent 65%
-    );
-    border-radius:50%;
-    z-index:0;
-    pointer-events:none;
-    filter:blur(30px);
+        drop-shadow(0 0 2px rgba(255,255,255,1))
+        drop-shadow(0 0 6px rgba(255,255,255,.9))
+        drop-shadow(0 0 12px rgba(255,255,255,.6))
+        drop-shadow(0 0 20px rgba(61,204,110,.7))
+        drop-shadow(0 0 35px rgba(61,204,110,.5))
+        drop-shadow(0 0 60px rgba(61,204,110,.3));
 }
 
-/* Pulsing glow animation */
+/* Pulsing glow animation - edges only */
 .logo-intro-diamond.animate img{
     animation:logoPulse 2.5s ease-in-out infinite;
-}
-.logo-intro-diamond.animate::before{
-    animation:innerGlowPulse 2.5s ease-in-out infinite;
-}
-.logo-intro-diamond.animate::after{
-    animation:outerGlowPulse 2.5s ease-in-out infinite;
 }
 @keyframes logoPulse{
     0%,100%{
         filter:
-            drop-shadow(0 0 3px rgba(255,255,255,1))
-            drop-shadow(0 0 8px rgba(255,255,255,.8))
-            drop-shadow(0 0 15px rgba(255,255,255,.5))
-            drop-shadow(0 0 25px rgba(61,204,110,.6))
-            drop-shadow(0 0 45px rgba(61,204,110,.4))
-            drop-shadow(0 0 80px rgba(61,204,110,.25));
+            drop-shadow(0 0 2px rgba(255,255,255,1))
+            drop-shadow(0 0 6px rgba(255,255,255,.9))
+            drop-shadow(0 0 12px rgba(255,255,255,.6))
+            drop-shadow(0 0 20px rgba(61,204,110,.7))
+            drop-shadow(0 0 35px rgba(61,204,110,.5))
+            drop-shadow(0 0 60px rgba(61,204,110,.3));
     }
     50%{
         filter:
-            drop-shadow(0 0 5px rgba(255,255,255,1))
-            drop-shadow(0 0 12px rgba(255,255,255,.9))
-            drop-shadow(0 0 20px rgba(255,255,255,.6))
-            drop-shadow(0 0 35px rgba(61,204,110,.7))
-            drop-shadow(0 0 60px rgba(61,204,110,.5))
-            drop-shadow(0 0 100px rgba(61,204,110,.3));
-    }
-}
-@keyframes innerGlowPulse{
-    0%,100%{
-        opacity:1;
-        transform:translate(-50%,-50%) scale(1);
-    }
-    50%{
-        opacity:.8;
-        transform:translate(-50%,-50%) scale(1.1);
-    }
-}
-@keyframes glowPulse{
-    0%,100%{
-        opacity:1;
-        transform:translate(-50%,-50%) scale(1);
-    }
-    50%{
-        opacity:.7;
-        transform:translate(-50%,-50%) scale(1.08);
+            drop-shadow(0 0 4px rgba(255,255,255,1))
+            drop-shadow(0 0 10px rgba(255,255,255,1))
+            drop-shadow(0 0 18px rgba(255,255,255,.7))
+            drop-shadow(0 0 30px rgba(61,204,110,.8))
+            drop-shadow(0 0 50px rgba(61,204,110,.6))
+            drop-shadow(0 0 80px rgba(61,204,110,.4));
     }
 }
 @keyframes outerGlowPulse{
