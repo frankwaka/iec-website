@@ -221,7 +221,8 @@ button{font-family:inherit;cursor:pointer}
 /* Brand text — refined typography */
 .logo-intro-text{
     position:absolute;
-    bottom:22%;left:50%;transform:translateX(-50%);
+    top:50%;left:50%;
+    transform:translate(-50%, 120px);
     text-align:center;
     opacity:0;
     z-index:10;
@@ -256,8 +257,8 @@ button{font-family:inherit;cursor:pointer}
     100%{transform:translate(-50%,-50%) scale(1);opacity:0}
 }
 @keyframes textFadeUp{
-    0%{opacity:0;transform:translateX(-50%) translateY(20px)}
-    100%{opacity:1;transform:translateX(-50%) translateY(0)}
+    0%{opacity:0;transform:translate(-50%, 140px)}
+    100%{opacity:1;transform:translate(-50%, 120px)}
 }
 
 /* Animation classes applied by JS */
