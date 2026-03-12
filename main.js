@@ -1,6 +1,6 @@
 // IEC Website — Main JavaScript
 
-// ===== LOGO ENTRANCE ANIMATION — Centered logo only =====
+// ===== LOGO ENTRANCE ANIMATION — With brand text =====
 (function() {
     try {
         var overlay = document.getElementById('logoIntro');
@@ -9,7 +9,7 @@
         var glow1   = document.getElementById('logoGlow1');
         var glow2   = document.getElementById('logoGlow2');
         var glow3   = document.getElementById('logoGlow3');
-        // logoText removed - full logo now includes text
+        var logoText = document.getElementById('logoText');
         var cleaned  = false;
 
         // Failsafe: always remove overlay after 5s no matter what
@@ -50,12 +50,25 @@
             } catch(e) {}
         }, 200);
 
-        // Phase 2: Elegant fade out (2200ms - longer hold for full logo)
+        // Phase 2: Brand text fades in (800ms after start)
+        setTimeout(function() {
+            try {
+                if (logoText) logoText.classList.add('animate');
+            } catch(e) {}
+        }, 800);
+
+        // Phase 3: Elegant fade out (2200ms - longer hold for full effect)
         setTimeout(function() {
             try {
                 diamond.style.transition = 'opacity 0.6s ease-out, transform 0.8s ease-out';
                 diamond.style.opacity = '0';
                 diamond.style.transform = 'scale(0.95)';
+                
+                if (logoText) {
+                    logoText.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+                    logoText.style.opacity = '0';
+                    logoText.style.transform = 'translateX(-50%) translateY(10px)';
+                }
             } catch(e) {}
 
             // Phase 4: Fade overlay & reveal navbar (600ms after phase 3)
@@ -84,7 +97,7 @@
                     }, 800);
                 } catch(e) { cleanup(); }
             }, 600);
-        }, 2000);
+        }, 2200);
 
     } catch(e) {
         // If anything crashes, forcefully remove overlay
